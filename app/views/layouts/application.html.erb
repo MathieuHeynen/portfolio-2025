@@ -12,11 +12,13 @@
 
   <body>
     <div id="navbar">
-
+      <%= link_to "BIO", root_path%>
+      <%= link_to "WORKS", works_path%>
+      <%= link_to "CONTACT", contact_path%>
     </div>
     <%= yield %>
     <div id="footer">
-
+      <p>footer</p>
     </div>
   </body>
 </html>

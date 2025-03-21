@@ -1,2 +1,18 @@
 @import "global";
-@import "bootstrap";
+
+div {
+  background-color: aquamarine;
+  border: solid blue 2px;
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
