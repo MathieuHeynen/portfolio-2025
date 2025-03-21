@@ -57,5 +57,22 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  # Live reload
+  gem "hotwire-livereload"
 end
 
+# Sass
+gem "sassc-rails"
+
+# Bootstrap
+gem "bootstrap", "~> 5.2"
+
+# Font Awesome
+gem "font-awesome-sass", "~> 6.1"
+
+# Simple Form
+gem "simple_form"
+
+# Auto prefix
+gem "autoprefixer-rails"
