@@ -1,18 +1,14 @@
-@import "global";
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
 
-div {
-  background-color: aquamarine;
-  border: solid blue 2px;
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
 
-  .navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-}
+// Your CSS partials
+@import "pages/home";
+@import "pages/all_pages";
+@import "components/footer";
+@import "components/navbar";

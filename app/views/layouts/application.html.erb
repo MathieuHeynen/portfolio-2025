@@ -12,13 +12,39 @@
 
   <body>
     <div id="navbar">
-      <%= link_to "BIO", root_path%>
-      <%= link_to "WORKS", works_path%>
-      <%= link_to "CONTACT", contact_path%>
+      <div id="navbar-button">
+        <%= link_to "BIO", root_path%>
+        <%= link_to "WORKS", works_path%>
+        <%= link_to "CONTACT", contact_path%>
+      </div>
     </div>
     <%= yield %>
-    <div id="footer">
-      <p>footer</p>
+    <div id="main-footer">
+      <div id="skills-banner">
+        BANNER
+      </div>
+      <div id="back-top">
+        BACK ON TOP
+      </div>
+      <div id="sub-footer">
+        <div id="year">
+          2025
+        </div>
+          <div id="contact-footer">
+            <div id="mail-footer">
+              <p>contact.heynen@gmail.com</p>
+            </div>
+            <div id="social-footer-button">
+              <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
+              <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen" %>
+              <%= link_to "GITHUB", "https://github.com/MathieuHeynen" %>
+              <%= link_to "DRIBBBLE", "https://dribbble.com/easur" %>
+            </div>
+          </div>
+        <div id="author">
+          ©MATHIEU HEYNEN
+        </div>
+      </div>
     </div>
   </body>
 </html>
