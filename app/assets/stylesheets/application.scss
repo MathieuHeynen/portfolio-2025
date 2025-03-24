@@ -1,10 +1,10 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
 
 // Your CSS partials
 @import "pages/home";
