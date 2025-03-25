@@ -52,19 +52,31 @@
   overflow: hidden; /* pour éviter tout débordement */
   justify-content: center; /* centre horizontalement */
   align-items: center; /* centre verticalement */
+}
 
-  #journey {
-    align-self: center; /* texte aligné en haut */
-    margin-bottom: 60px;
+#journey {
+  align-self: center; /* texte aligné en haut */
+  margin-bottom: 60px;
+
+  p {
+    margin-bottom: 2.38rem;
   }
+}
 
-  #languages {
-    align-self: center; /* texte aligné en haut */
-    margin-top: 60px;
+#skills {
+  align-self: center; /* texte aligné en haut */
+
+  p {
+    margin-bottom: 2.38rem;
   }
+}
 
-  #skills {
-    align-self: center; /* texte aligné en haut */
+#languages {
+  align-self: center; /* texte aligné en haut */
+  margin-top: 60px;
+
+  .med {
+    margin-bottom: 2.38rem;
   }
 }
 
@@ -104,4 +116,20 @@
 .bottom-right {
   bottom: 0;
   right: 0;
+}
+
+.animated-hello {
+  width: fit-content;
+  border: solid $gray 1px;
+  border-radius: 50px;
+  display: flex;
+  align-content: center;
+  margin-bottom: 0.4em;
+
+  h4 {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: 1.75em;
+    margin-right: 1.75em;
+  }
 }

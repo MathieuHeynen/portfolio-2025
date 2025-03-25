@@ -18,13 +18,20 @@
         <%= link_to "REACH ME", contact_path, id: "navbar-button"%>
       </div>
     </div>
+
     <%= yield %>
+
     <div id="main-footer">
       <div id="skills-banner">
-        <h3>//   GRAPHIC DESIGN   //   WEB DEV   //   PRINT   //   ILLUSTRATION   //   FRONT-END DEV   </h3>
+        <div class="skills-item"><h3>//   GRAPHIC DESIGN</h3></div>
+        <div class="skills-item"><h3>//   WEB DEV</h3></div>
+        <div class="skills-item"><h3>//   PRINT</h3></div>
+        <div class="skills-item"><h3>//   ILLUSTRATION</h3></div>
+        <div class="skills-item"><h3>//   FRONT-END DEV</h3></div>
+        <div class="skills-item"><h3>//   GRAPHIC DESIGN</h3></div>
       </div>
       <div id="back-top">
-        BACK ON TOP
+        <p class="med-bold">BACK ON TOP</p>
       </div>
       <div id="sub-footer">
         <div id="year">
@@ -34,11 +41,13 @@
             <div id="mail-footer">
               <h5>contact.heynen@gmail.com</h5>
             </div>
-            <div id="social-footer-button">
-              <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
-              <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen" %>
-              <%= link_to "GITHUB", "https://github.com/MathieuHeynen" %>
-              <%= link_to "DRIBBBLE", "https://dribbble.com/easur" %>
+            <div id="social-footer">
+              <div id="social-footer-button">
+                <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
+                <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen" %>
+                <%= link_to "GITHUB", "https://github.com/MathieuHeynen" %>
+                <%= link_to "DRIBBBLE", "https://dribbble.com/easur" %>
+              </div>
             </div>
           </div>
         <div id="author">

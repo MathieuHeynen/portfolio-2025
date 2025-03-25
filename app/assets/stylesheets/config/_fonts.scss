@@ -1,5 +1,6 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+@import "colors";
 
 h1 {
   font-family: "Roboto Flex", sans-serif;
@@ -7,7 +8,7 @@ h1 {
   font-weight: 900;
   font-style: normal;
   font-size: 8em; // 128
-  line-height: 0.85;
+  line-height: 0.9;
 }
 
 h2 {
@@ -44,6 +45,8 @@ h5 {
 
 p,
 a {
+  color: $gray;
+  text-decoration: none;
   margin-top: 0;
   margin-bottom: 0;
   font-family: "Roboto Flex", sans-serif;
