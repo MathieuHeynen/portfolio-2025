@@ -11,28 +11,28 @@
   </head>
 
   <body>
-    <div id="navbar">
-      <div id="navbar-button">
-        <%= link_to "BIO", root_path%>
-        <%= link_to "WORKS", works_path%>
-        <%= link_to "CONTACT", contact_path%>
+    <div id="header">
+      <div id="navbar">
+        <%= link_to "BIO", root_path, id: "navbar-button"%>
+        <%= link_to "WORKS", works_path, id: "navbar-button"%>
+        <%= link_to "REACH ME", contact_path, id: "navbar-button"%>
       </div>
     </div>
     <%= yield %>
     <div id="main-footer">
       <div id="skills-banner">
-        BANNER
+        <h3>//   GRAPHIC DESIGN   //   WEB DEV   //   PRINT   //   ILLUSTRATION   //   FRONT-END DEV   </h3>
       </div>
       <div id="back-top">
         BACK ON TOP
       </div>
       <div id="sub-footer">
         <div id="year">
-          2025
+          <p class="sml">2025</p>
         </div>
           <div id="contact-footer">
             <div id="mail-footer">
-              <p>contact.heynen@gmail.com</p>
+              <h5>contact.heynen@gmail.com</h5>
             </div>
             <div id="social-footer-button">
               <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
@@ -42,7 +42,7 @@
             </div>
           </div>
         <div id="author">
-          ©MATHIEU HEYNEN
+          <p class="sml">©MATHIEU HEYNEN</p>
         </div>
       </div>
     </div>

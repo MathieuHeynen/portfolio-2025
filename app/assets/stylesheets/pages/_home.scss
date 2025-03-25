@@ -8,7 +8,7 @@
   #welcome-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */
     grid-row: 1;
-    padding: 20px;
+    padding: 50px;
     z-index: 2; /* texte au-dessus de l'image */
     align-self: center; /* texte aligné en haut */
   }
@@ -37,6 +37,71 @@
   }
 }
 
+.container {
+  max-width: 100%;
+  padding: 0;
+}
+
 #about {
+  margin: 50px;
+  padding: 80px;
+  border: solid $gray 1px;
   text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden; /* pour éviter tout débordement */
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+
+  #journey {
+    align-self: center; /* texte aligné en haut */
+    margin-bottom: 60px;
+  }
+
+  #languages {
+    align-self: center; /* texte aligné en haut */
+    margin-top: 60px;
+  }
+
+  #skills {
+    align-self: center; /* texte aligné en haut */
+  }
+}
+
+.corner-symbol {
+  //font
+  text-align: center;
+  font-family: "Roboto Flex";
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  text-transform: uppercase;
+  //position
+  position: absolute;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
 }
