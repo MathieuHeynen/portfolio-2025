@@ -19,17 +19,29 @@
 }
 
 #works-sharp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 5.25em;
-  padding: 7.25em;
   border: solid $gray 1px;
-  text-align: center;
   text-transform: uppercase;
   position: relative;
   overflow: hidden; /* pour éviter tout débordement */
-  justify-content: center; /* centre horizontalement */
-  align-items: center; /* centre verticalement */
-  align-content: center;
   height: -webkit-fill-available;
+
+  #work-name-carousel {
+    padding-left: 10px;
+    padding-top: 10px;
+    text-align: left;
+    line-height: 0.75;
+  }
+
+  #work-client-carousel {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+    line-height: 1;
+  }
 }
 
 .work-case {
@@ -77,6 +89,14 @@
     object-fit: cover;
     justify-content: center;
     align-items: center;
+  }
+
+  .work-name h2 {
+    line-height: 0.75;
+  }
+
+  .work-client p {
+    line-height: 1;
   }
 }
 
