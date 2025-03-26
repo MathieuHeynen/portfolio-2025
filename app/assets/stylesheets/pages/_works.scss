@@ -1,0 +1,119 @@
+.container {
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+  height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
+  overflow: hidden; /* pour éviter tout débordement */
+}
+
+#works-blur {
+  margin: 50px;
+  border: solid $gray 1px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden; /* pour éviter tout débordement */
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+  height: -webkit-fill-available;
+}
+
+#works-sharp {
+  margin: 5.25em;
+  padding: 7.25em;
+  border: solid $gray 1px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden; /* pour éviter tout débordement */
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+  align-content: center;
+  height: -webkit-fill-available;
+}
+
+.work-case {
+  margin-inline: 50px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 25px;
+  border-top: solid $gray 1px;
+
+  .work-reference {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-column: 1 / span 3;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .work-description {
+    grid-column: 4 / span 3;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    line-height: 1;
+    padding-right: 25px;
+  }
+
+  .work-image {
+    grid-column: 7 / span 2;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    width: 100%; /* largeur adaptable */
+    // padding-top: 56.25%; /* 16 / 9 = 0.5625 → ratio 4:3 */
+    overflow: hidden; /* optionnel, mais recommandé */
+    align-content: center;
+    justify-items: center;
+  }
+
+  .work-blur {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.corner-symbol {
+  //font
+  text-align: center;
+  font-family: "Roboto Flex";
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  text-transform: uppercase;
+  //position
+  position: absolute;
+  display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
