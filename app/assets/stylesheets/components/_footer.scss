@@ -7,6 +7,7 @@
 #skills-banner {
   height: 5.8125rem;
   display: flex;
+  overflow: hidden; /* pour éviter tout débordement */
 
   .skills-item {
     margin: 0;

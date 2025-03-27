@@ -1,0 +1,23 @@
+<div class="show-container">
+  <div class="show-item">
+    <div class="show-number">
+      <h1>WORK<br><%= @work.number %></h1>
+    </div>
+    <div class="show-description">
+      <p class="med"><%= @work.description %></p>
+    </div>
+    <div class="image-large">
+      <h3>IMAGE</h3>
+    </div>
+    <div class="show-reference">
+      <p class="sml">11010101001011110010<br><br><%=@work.client%><br><%=@work.title%></p>
+    </div>
+    <div class="gallery-back animated-hello">
+      <%= link_to "BACK TO ALL WORKS", works_path %>
+    </div>
+    <div class="show-buttons">
+    </div>
+    <div class="image-miniatures">
+    </div>
+  </div>
+</div>

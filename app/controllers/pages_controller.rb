@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def works
+    @works = Work.all
   end
 
   def show

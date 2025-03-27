@@ -1,5 +1,5 @@
 <div>
-  <div class="container">
+  <div class="work-container">
     <div id="works-blur">
       <div class="corner-symbol top-left">
         <p>+</p>
@@ -14,40 +14,47 @@
         <p>+</p>
       </div>
       <div id="works-sharp">
-        <h2 id="work-name-carousel">WORKS 001</h2>
+        <h4 id="work-name-carousel">WORKS 001</h4>
         <p id="work-client-carousel" class="sml">
           11010101001011110010<br><br>CLIENT 20233554448<br>5558 5848 54
         </p>
       </div>
     </div>
   </div>
-  <div class="work-case">
-    <div class="work-reference">
-      <div class="work-name">
-        <h2>WORKS 001</h2>
-      </div>
-      <div class="work-client">
-        <p class="sml">11010101001011110010<br><br>CLIENT 20233554448<br>5558 5848 54</p>
-      </div>
-    </div>
-    <div class="work-description">
-      <p class="med">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
-    </div>
-    <div class="work-image">
-      <div class="corner-symbol top-left">
-        <p class="med">+</p>
-      </div>
-      <div class="corner-symbol top-right">
-        <p class="med">+</p>
-      </div>
-      <div class="corner-symbol bottom-left">
-        <p class="med">+</p>
-      </div>
-      <div class="corner-symbol bottom-right">
-        <p class="med">+</p>
-      </div>
-      <h4>IMAGE</h4>
-    </div>
-  </div>
+  <ul>
+    <% @works.each do |work| %>
+      <li>
+        <%= link_to work.title, work_path(work.slug) %>
 
+        <div class="work-case">
+          <div class="work-reference">
+            <div class="work-name">
+              <h2>WORKS <%=work.number%></h2>
+            </div>
+            <div class="work-client">
+              <p class="sml">11010101001011110010<br><br><%=work.client%><br><%=work.title%></p>
+            </div>
+          </div>
+          <div class="work-description">
+            <p class="med"><%=work.description%></p>
+          </div>
+          <div class="work-image">
+            <div class="corner-symbol top-left">
+              <p class="med">+</p>
+            </div>
+            <div class="corner-symbol top-right">
+              <p class="med">+</p>
+            </div>
+            <div class="corner-symbol bottom-left">
+              <p class="med">+</p>
+            </div>
+            <div class="corner-symbol bottom-right">
+              <p class="med">+</p>
+            </div>
+            <h4>IMAGE</h4>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
