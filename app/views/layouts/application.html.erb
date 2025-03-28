@@ -11,21 +11,23 @@
   </head>
 
   <body>
-    <div id="header">
-      <div class="logo-navbar">
-        <h5 id="logo">MATHIEU HEYNEN</h5>
-        <%= image_tag "logo-marker-hey-left.png", alt: "HEY!" %>
-      </div>
+    <div id="container-header">
+      <%= link_to root_path do %>
+        <div class="logo-header">
+          <h5 id="logo">MATHIEU HEYNEN</h5>
+          <%= image_tag "logo-marker-hey-left.png", alt: "HEY!" %>
+        </div>
+      <% end %>
       <div id="navbar">
-        <%= link_to "BIO", root_path, id: "navbar-button"%>
-        <%= link_to "WORKS", works_path, id: "navbar-button"%>
-        <%= link_to "REACH ME", contact_path, id: "navbar-button"%>
+        <%= link_to "BIO", root_path, class: "navbar-button"%>
+        <%= link_to "WORKS", works_path, class: "navbar-button"%>
+        <%= link_to "REACH ME", contact_path, class: "navbar-button"%>
       </div>
     </div>
 
     <%= yield %>
 
-    <div id="main-footer">
+    <div id="container-footer">
       <div id="skills-banner">
         <div class="skills-item"><h4>//   GRAPHIC DESIGN</h4></div>
         <div class="skills-item"><h4>//   WEB DEV</h4></div>
@@ -38,7 +40,7 @@
       <div id="back-top">
         <p class="med-bold">BACK ON TOP</p>
       </div>
-      <div id="sub-footer">
+      <div id="container-sub-footer">
         <div id="year">
           <p class="sml">2025</p>
         </div>

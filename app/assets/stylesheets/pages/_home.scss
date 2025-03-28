@@ -1,11 +1,11 @@
-#welcome {
+.container-hello {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   position: relative;
   height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 
-  #welcome-presentation {
+  #hello-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */
     grid-row: 1;
     padding: 50px;
@@ -37,7 +37,7 @@
   }
 }
 
-.container {
+.container-about {
   max-width: 100%;
   padding: 0;
 }

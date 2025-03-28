@@ -1,8 +1,13 @@
 <div class="show-container">
   <div class="show-item">
-    <div class="show-number">
-      <h1>WORK<br><%= @work.number %></h1>
-    </div>
+    <%# <div class="show-number-container"> %>
+      <div class="show-work">
+        <h1>WORK</h1>
+      </div>
+      <div class="show-number">
+        <h1><%= @work.number %></h1>
+      </div>
+    <%# </div> %>
     <div class="show-description">
       <p class="med"><%= @work.description %></p>
     </div>
