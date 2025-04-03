@@ -1,0 +1,102 @@
+// ---------------------------------------------
+// Google Fonts Import
+// ---------------------------------------------
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+
+// ---------------------------------------------
+// Color Variables
+// ---------------------------------------------
+$red: #fd1015;
+$blue: #0d6efd;
+$yellow: #ffc65a;
+$orange: #e67e22;
+$green: #1edd88;
+$gray: #0e0000;
+$light-gray: #f4f4f4;
+
+// ---------------------------------------------
+// Typography Variables
+// ---------------------------------------------
+$font-main: "Roboto Flex", sans-serif;
+$font-optical: auto;
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 900;
+$font-weight-max: 1000;
+
+$font-size-xl: 8em; // 128pt
+$font-size-lg: 3.75em; // 60pt
+$font-size-md: 2.5em; // 40pt
+$font-size-sm: 2em; // 32pt
+$font-size-xs: 1.5em; // 24pt
+$font-size-base: 1.125em; // 18pt
+$font-size-med: 0.875em; // 14pt
+$font-size-sml: 0.625em; // 10pt
+
+// ---------------------------------------------
+// Global Text Styles
+// ---------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  font-family: $font-main;
+  font-optical-sizing: $font-optical;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  color: $gray;
+}
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: 0.9;
+}
+
+h2 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+h3 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-max;
+}
+
+h4 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-max;
+}
+
+h5 {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-max;
+}
+
+p,
+a {
+  font-size: $font-size-base;
+  font-weight: $font-weight-light;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.med {
+  font-size: $font-size-med;
+  text-transform: uppercase;
+}
+
+.med-bold {
+  font-size: $font-size-med;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.sml {
+  font-size: $font-size-sml;
+  text-transform: uppercase;
+}

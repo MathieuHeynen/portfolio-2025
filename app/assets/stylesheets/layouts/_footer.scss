@@ -1,10 +1,10 @@
-#container-footer {
+.footer-container {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
 }
 
-#skills-banner {
+.skills-banner {
   height: 5.8125rem;
   display: flex;
   overflow: hidden; /* pour éviter tout débordement */
@@ -17,7 +17,7 @@
   }
 }
 
-#back-top {
+.back-to-top {
   height: 5.8125rem;
   align-content: center;
 
@@ -26,7 +26,7 @@
   }
 }
 
-#container-sub-footer {
+.sub-footer {
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 0.5fr 2fr 0.5fr;
@@ -36,32 +36,32 @@
     margin: 0;
   }
 
-  #year {
+  .year {
     text-align: left;
     padding-left: 50px;
     margin-bottom: 0.8em;
   }
 
-  #author {
+  .author {
     text-align: right;
     padding-right: 50px;
     margin-bottom: 0.8em;
   }
 
-  #social-footer {
+  .social-footer {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
   }
 
-  #social-footer-button {
+  .social-links {
     display: flex;
     grid-column: 2 / -2;
     justify-content: space-between;
     margin-bottom: 0.8em;
-  }
 
-  #social-footer-button a {
-    margin-top: 0.5em;
-    line-height: 0.9;
+    a {
+      margin-top: 0.5em;
+      line-height: 0.9;
+    }
   }
 }

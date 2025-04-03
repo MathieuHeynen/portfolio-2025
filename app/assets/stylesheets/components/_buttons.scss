@@ -1,0 +1,36 @@
+.btn {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  &--primary {
+    font-weight: 1000;
+    font-size: 2em;
+    width: fit-content;
+    border: solid $gray 1px;
+    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+  }
+
+  &--secondary {
+    font-weight: 1000;
+    font-size: 1em;
+    width: fit-content;
+    border: solid $gray 1px;
+    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    margin-bottom: 0.4em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+  }
+}

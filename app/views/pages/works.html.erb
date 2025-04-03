@@ -1,27 +1,22 @@
-<div>
-  <div class="work-container">
-    <div id="works-blur">
-      <div class="corner-symbol top-left">
-        <p>+</p>
-      </div>
-      <div class="corner-symbol top-right">
-        <p>+</p>
-      </div>
-      <div class="corner-symbol bottom-left">
-        <p>+</p>
-      </div>
-      <div class="corner-symbol bottom-right">
-        <p>+</p>
-      </div>
-      <div id="works-sharp">
-        <h4 id="work-name-carousel">WORKS 001</h4>
-        <p id="work-client-carousel" class="sml">
+<div class="work-wrapper">
+
+  <div class="work-intro">
+    <div class="works-blur">
+      <div class="corner-symbol top-left"><p class="med">+</p></div>
+      <div class="corner-symbol top-right"><p class="med">+</p></div>
+      <div class="corner-symbol bottom-left"><p class="med">+</p></div>
+      <div class="corner-symbol bottom-right"><p class="med">+</p></div>
+      <div class="works-sharp">
+        <h4 class="work-carousel-title">WORKS 001</h4>
+        <p class="work-carousel-client sml">
           11010101001011110010<br><br>CLIENT 20233554448<br>5558 5848 54
         </p>
       </div>
     </div>
+
   </div>
-  <ul>
+
+  <ul class="work-list">
     <% @works.each do |work| %>
       <li>
         <%= link_to work_path(work.slug) do %>
@@ -38,18 +33,10 @@
               <p class="med"><%=work.description%></p>
             </div>
             <div class="work-image">
-              <div class="corner-symbol top-left">
-                <p class="med">+</p>
-              </div>
-              <div class="corner-symbol top-right">
-                <p class="med">+</p>
-              </div>
-              <div class="corner-symbol bottom-left">
-                <p class="med">+</p>
-              </div>
-              <div class="corner-symbol bottom-right">
-                <p class="med">+</p>
-              </div>
+              <div class="corner-symbol top-left"><p class="med">+</p></div>
+              <div class="corner-symbol top-right"><p class="med">+</p></div>
+              <div class="corner-symbol bottom-left"><p class="med">+</p></div>
+              <div class="corner-symbol bottom-right"><p class="med">+</p></div>
               <h4>IMAGE</h4>
             </div>
           </div>
@@ -57,4 +44,5 @@
       </li>
     <% end %>
   </ul>
+
 </div>

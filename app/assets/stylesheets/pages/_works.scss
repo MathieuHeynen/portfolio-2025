@@ -1,4 +1,4 @@
-.work-container {
+.work-intro {
   max-width: 100%;
   padding: 0;
   position: relative;
@@ -6,7 +6,7 @@
   overflow: hidden; /* pour éviter tout débordement */
 }
 
-#works-blur {
+.works-blur {
   margin: 50px;
   border: solid $gray 1px;
   text-align: center;
@@ -18,7 +18,7 @@
   height: -webkit-fill-available;
 }
 
-#works-sharp {
+.works-sharp {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,14 +29,14 @@
   overflow: hidden; /* pour éviter tout débordement */
   height: -webkit-fill-available;
 
-  #work-name-carousel {
+  .work-carousel-title {
     padding-left: 10px;
     padding-top: 10px;
     text-align: left;
     line-height: 0.75;
   }
 
-  #work-client-carousel {
+  .work-carousel-client {
     padding-right: 10px;
     padding-bottom: 10px;
     text-align: right;

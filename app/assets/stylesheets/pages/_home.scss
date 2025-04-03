@@ -5,7 +5,7 @@
   height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 
-  #hello-presentation {
+  .hello-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */
     grid-row: 1;
     padding: 50px;
@@ -13,7 +13,7 @@
     align-self: center; /* texte aligné en haut */
   }
 
-  #welcome-photo {
+  .hello-photo {
     grid-column: 5 / -1; /* colonnes 5 à 12 (8 dernières colonnes) */
     grid-row: 1;
     align-self: end; /* alignement bas */
@@ -26,7 +26,7 @@
     align-items: flex-end; /* image collée en bas */
   }
 
-  #welcome-photo img {
+  .hello-photo img {
     max-width: 100%;
     max-height: 100%;
     height: auto;
@@ -42,7 +42,7 @@
   padding: 0;
 }
 
-#about {
+.about-box {
   margin: 50px;
   padding: 80px;
   border: solid $gray 1px;
@@ -83,9 +83,6 @@
 .corner-symbol {
   //font
   text-align: center;
-  font-family: "Roboto Flex";
-  font-size: 1.5em;
-  font-style: normal;
   font-weight: 100;
   line-height: normal;
   text-transform: uppercase;
@@ -96,40 +93,24 @@
   height: 25px;
   justify-content: center;
   align-items: center;
-}
 
-.top-left {
-  top: 0;
-  left: 0;
-}
+  &.top-left {
+    top: 0;
+    left: 0;
+  }
 
-.top-right {
-  top: 0;
-  right: 0;
-}
+  &.top-right {
+    top: 0;
+    right: 0;
+  }
 
-.bottom-left {
-  bottom: 0;
-  left: 0;
-}
+  &.bottom-left {
+    bottom: 0;
+    left: 0;
+  }
 
-.bottom-right {
-  bottom: 0;
-  right: 0;
-}
-
-.animated-hello {
-  width: fit-content;
-  border: solid $gray 1px;
-  border-radius: 50px;
-  display: flex;
-  align-content: center;
-  margin-bottom: 0.4em;
-
-  h4 {
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-left: 1.75em;
-    margin-right: 1.75em;
+  &.bottom-right {
+    bottom: 0;
+    right: 0;
   }
 }

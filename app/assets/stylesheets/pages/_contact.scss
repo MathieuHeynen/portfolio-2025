@@ -1,11 +1,11 @@
-#contact {
+.contact-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   position: relative;
   height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 
-  #contact-presentation {
+  .contact-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */
     grid-row: 1;
     padding: 50px;
@@ -13,7 +13,7 @@
     align-self: center; /* texte aligné en haut */
   }
 
-  #contact-photo {
+  .contact-photo {
     grid-column: 5 / -1; /* colonnes 5 à 12 (8 dernières colonnes) */
     grid-row: 1;
     align-self: end; /* alignement bas */
@@ -24,37 +24,20 @@
     display: flex;
     justify-content: flex-end; /* image collée à droite */
     align-items: flex-end; /* image collée en bas */
-  }
 
-  #contact-photo img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    width: auto;
-    object-fit: contain; /* Très important : ajuste sans cropper */
-    object-position: bottom right; /* positionnée en bas à droite */
-    display: block;
-  }
-}
-
-.animated-hello {
-  width: fit-content;
-  border: solid $gray 1px;
-  border-radius: 50px;
-  display: flex;
-  align-content: center;
-  margin-bottom: 0.4em;
-
-  h4 {
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-left: 1.75em;
-    margin-right: 1.75em;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain; /* Très important : ajuste sans cropper */
+      object-position: bottom right; /* positionnée en bas à droite */
+      display: block;
+    }
   }
 }
 
 .quotation {
-  font-family: "Roboto Flex";
   font-size: 8rem;
   font-style: normal;
   font-weight: 450;
@@ -65,7 +48,6 @@
 }
 
 .contact-hello {
-  font-family: "Roboto Flex";
   font-size: 8rem;
   font-style: italic;
   font-weight: 900;

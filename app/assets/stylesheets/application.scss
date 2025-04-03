@@ -1,16 +1,21 @@
-// External libraries
-@import "bootstrap";
-@import "font-awesome";
+// Config
+@import "utils/reset";
+@import "utils/variables";
+@import "utils/mixins";
 
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
+// Layouts & base
+@import "layouts/header";
+@import "layouts/footer";
 
-// Your CSS partials
+// Components
+@import "components/buttons";
+
+// Pages
+@import "pages/all_pages";
 @import "pages/home";
 @import "pages/contact";
-@import "pages/works";
 @import "pages/show";
-@import "pages/all_pages";
-@import "components/footer";
-@import "components/navbar";
+@import "pages/works";
+
+// Responsive
+@import "responsive";

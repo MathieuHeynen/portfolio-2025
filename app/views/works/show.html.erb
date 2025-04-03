@@ -1,28 +1,39 @@
 <div class="show-container">
   <div class="show-item">
-    <%# <div class="show-number-container"> %>
-      <div class="show-work">
-        <h1>WORK</h1>
-      </div>
-      <div class="show-number">
-        <h1><%= @work.number %></h1>
-      </div>
-    <%# </div> %>
+    <div class="show-title">
+      <h1>WORK</h1>
+    </div>
+
+    <div class="show-number">
+      <h1><%= @work.number %></h1>
+    </div>
+
     <div class="show-description">
       <p class="med"><%= @work.description %></p>
     </div>
-    <div class="image-large">
+
+    <div class="show-media">
       <h3>IMAGE</h3>
     </div>
-    <div class="show-reference">
-      <p class="sml">11010101001011110010<br><br><%=@work.client%><br><%=@work.title%></p>
+
+    <div class="show-meta">
+      <p class="sml">
+        11010101001011110010<br><br>
+        <%= @work.client %><br>
+        <%= @work.title %>
+      </p>
     </div>
-    <div class="gallery-back animated-hello">
-      <%= link_to "BACK TO ALL WORKS", works_path %>
+
+    <div class="show-nav">
+      <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary" %>
     </div>
+
     <div class="show-buttons">
+      <!-- boutons d'action -->
     </div>
-    <div class="image-miniatures">
+
+    <div class="show-thumbnails">
+      <!-- miniatures -->
     </div>
   </div>
 </div>

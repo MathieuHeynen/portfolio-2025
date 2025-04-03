@@ -3,6 +3,10 @@
   <head>
     <title>Mathieu Heynen</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# ------------------------ %>
+    <%# BELY DISPLAY FONT IMPORT %>
+    <%# ------------------------ %>
+    <%# <link rel="stylesheet" href="https://use.typekit.net/rdd5fuj.css"> %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,14 +15,14 @@
   </head>
 
   <body>
-    <div id="container-header">
+    <div class="header-container">
       <%= link_to root_path do %>
         <div class="logo-header">
-          <h5 id="logo">MATHIEU HEYNEN</h5>
-          <%= image_tag "logo-marker-hey-left.png", alt: "HEY!" %>
+          <%= image_tag "mascotte.png", alt: "HEY!" %>
+          <h5 class="logo-text">MATHIEU HEYNEN</h5>
         </div>
       <% end %>
-      <div id="navbar">
+      <div class="navbar">
         <%= link_to "BIO", root_path, class: "navbar-button"%>
         <%= link_to "WORKS", works_path, class: "navbar-button"%>
         <%= link_to "REACH ME", contact_path, class: "navbar-button"%>
@@ -27,8 +31,8 @@
 
     <%= yield %>
 
-    <div id="container-footer">
-      <div id="skills-banner">
+    <div class="footer-container">
+      <div class="skills-banner">
         <div class="skills-item"><h4>//   GRAPHIC DESIGN</h4></div>
         <div class="skills-item"><h4>//   WEB DEV</h4></div>
         <div class="skills-item"><h4>//   PRINT</h4></div>
@@ -37,19 +41,19 @@
         <div class="skills-item"><h4>//   GRAPHIC DESIGN</h4></div>
         <div class="skills-item"><h4>//   WEB DEV</h4></div>
       </div>
-      <div id="back-top">
+      <div class="back-to-top">
         <p class="med-bold">BACK ON TOP</p>
       </div>
-      <div id="container-sub-footer">
-        <div id="year">
+      <div class="sub-footer">
+        <div class="year">
           <p class="sml">2025</p>
         </div>
-          <div id="contact-footer">
-            <div id="mail-footer">
+          <div class="contact-footer">
+            <div class="mail-footer">
               <h5>contact.heynen@gmail.com</h5>
             </div>
-            <div id="social-footer">
-              <div id="social-footer-button">
+            <div class="social-footer">
+              <div class="social-links">
                 <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
                 <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen" %>
                 <%= link_to "GITHUB", "https://github.com/MathieuHeynen" %>
@@ -57,7 +61,7 @@
               </div>
             </div>
           </div>
-        <div id="author">
+        <div class="author">
           <p class="sml">©MATHIEU HEYNEN</p>
         </div>
       </div>
