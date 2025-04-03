@@ -15,17 +15,19 @@
   </head>
 
   <body>
-    <div class="header-container">
-      <%= link_to root_path do %>
-        <div class="logo-header">
-          <%= image_tag "mascotte.png", alt: "HEY!" %>
-          <h5 class="logo-text">MATHIEU HEYNEN</h5>
+    <div class="header">
+      <div class="header-container">
+        <%= link_to root_path do %>
+          <div class="logo-header">
+            <%= image_tag "mascotte.png", alt: "HEY!" %>
+            <h5 class="logo-text">MATHIEU HEYNEN</h5>
+          </div>
+        <% end %>
+        <div class="navbar">
+          <%= link_to "BIO", root_path, class: "navbar-button"%>
+          <%= link_to "WORKS", works_path, class: "navbar-button"%>
+          <%= link_to "REACH ME", contact_path, class: "navbar-button"%>
         </div>
-      <% end %>
-      <div class="navbar">
-        <%= link_to "BIO", root_path, class: "navbar-button"%>
-        <%= link_to "WORKS", works_path, class: "navbar-button"%>
-        <%= link_to "REACH ME", contact_path, class: "navbar-button"%>
       </div>
     </div>
 

@@ -2,12 +2,14 @@
   max-width: 100%;
   padding: 0;
   position: relative;
-  height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
+  height: calc(
+    100vh - var(--header-height)
+  ); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 }
 
 .works-blur {
-  margin: 50px;
+  margin: 3.125rem;
   border: solid $gray 1px;
   text-align: center;
   text-transform: uppercase;
@@ -22,7 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 5.25em;
+  margin: 5.25rem;
   border: solid $gray 1px;
   text-transform: uppercase;
   position: relative;
@@ -30,15 +32,15 @@
   height: -webkit-fill-available;
 
   .work-carousel-title {
-    padding-left: 10px;
-    padding-top: 10px;
+    padding-left: 0.625rem;
+    padding-top: 0.625rem;
     text-align: left;
     line-height: 0.75;
   }
 
   .work-carousel-client {
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
     text-align: right;
     line-height: 1;
   }
@@ -47,36 +49,37 @@
 .work-case {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  column-gap: 25px;
+  column-gap: 1.56rem;
   border-top: solid $gray 1px;
 
   .work-reference {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    grid-column: 1 / span 3;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    grid-column: 1 / span 2;
+    margin-top: 1.56rem;
+    margin-bottom: 1.56rem;
   }
 
   .work-description {
-    grid-column: 4 / span 3;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    grid-column: 4 / span 2;
+    margin-top: 1.56rem;
+    margin-bottom: 1.56rem;
     line-height: 1;
-    padding-right: 25px;
+    padding-right: 1.56rem;
   }
 
   .work-image {
     grid-column: 7 / span 2;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 1.56rem;
+    margin-bottom: 1.56rem;
     position: relative;
     width: 100%; /* largeur adaptable */
     // padding-top: 56.25%; /* 16 / 9 = 0.5625 → ratio 4:3 */
     overflow: hidden; /* optionnel, mais recommandé */
     align-content: center;
     justify-items: center;
+    border: solid $gray 1px;
   }
 
   .work-blur {
@@ -90,8 +93,12 @@
     align-items: center;
   }
 
-  .work-name h2 {
-    line-height: 0.75;
+  .work-name h3 {
+    margin-bottom: 3.125rem;
+
+    h3 {
+      line-height: 0.75;
+    }
   }
 
   .work-client p {
@@ -111,8 +118,8 @@
   //position
   position: absolute;
   display: flex;
-  width: 25px;
-  height: 25px;
+  width: 1.56rem;
+  height: 1.56rem;
   justify-content: center;
   align-items: center;
 }
@@ -137,12 +144,12 @@
   right: 0;
 }
 
-ul {
-  margin-inline: 50px;
+.work-list {
+  margin-inline: 3.125rem;
   padding-left: 0;
-}
 
-li {
-  list-style-type: none;
-  padding-left: 0;
+  li {
+    list-style-type: none;
+    padding-left: 0;
+  }
 }

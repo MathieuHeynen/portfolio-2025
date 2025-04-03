@@ -2,13 +2,15 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   position: relative;
-  height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
+  height: calc(
+    100vh - var(--header-height)
+  ); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 
   .contact-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */
     grid-row: 1;
-    padding: 50px;
+    padding: 3.125rem;
     z-index: 2; /* texte au-dessus de l'image */
     align-self: center; /* texte aligné en haut */
   }
@@ -42,7 +44,7 @@
   font-style: normal;
   font-weight: 450;
   line-height: 6.625rem;
-  width: 0.5em; /* Réduit l'espacement avec le texte */
+  width: 0.5rem; /* Réduit l'espacement avec le texte */
   /* Facultatif pour réduire encore plus l'espace */
   // margin: 0 -0.2em;
 }
@@ -52,6 +54,6 @@
   font-style: italic;
   font-weight: 900;
   line-height: 6.625rem;
-  margin: 0 -0.2em;
-  padding-right: 0.3em;
+  margin: 0 -0.2rem;
+  padding-right: 0.3rem;
 }

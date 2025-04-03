@@ -2,7 +2,9 @@
   max-width: 100%;
   padding: 0;
   position: relative;
-  height: calc(100vh - 120px); /* prend toute la hauteur restante de l'écran */
+  height: calc(
+    100vh - var(--header-height)
+  ); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
 }
 
@@ -10,8 +12,8 @@
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(15, 1fr);
-  gap: 10px;
-  margin: 50px;
+  gap: 0.625rem;
+  margin: 3.125rem;
   height: -webkit-fill-available;
   overflow: hidden;
   position: relative;

@@ -2,6 +2,7 @@
 // Google Fonts Import
 // ---------------------------------------------
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+// @import url("https://use.typekit.net/rdd5fuj.css")
 
 // ---------------------------------------------
 // Color Variables
@@ -100,3 +101,14 @@ a {
   font-size: $font-size-sml;
   text-transform: uppercase;
 }
+
+// ---------------------------------------------
+// Responsive Breakpoints
+// ---------------------------------------------
+
+$breakpoint-xs: 360px; // Très petits écrans
+$breakpoint-sm: 480px; // Smartphones
+$breakpoint-md: 768px; // Tablettes
+$breakpoint-lg: 1024px; // Laptops
+$breakpoint-xl: 1280px; // Desktops
+$breakpoint-xxl: 1440px; // Grands écrans

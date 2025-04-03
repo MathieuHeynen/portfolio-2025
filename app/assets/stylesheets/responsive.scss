@@ -1,253 +1,235 @@
-@media (max-width: 768px) {
-  .show-item {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1.5rem;
+// Config
+@import "utils/reset";
+@import "utils/variables";
+@import "utils/mixins";
+
+// ===================================
+// 1. Global elements (typography, buttons, layout)
+// ===================================
+@media (max-width: 1024px) {
+  html {
+    font-size: 75%;
   }
 
-  .show-title,
-  .show-number,
-  .show-description,
-  .show-media,
-  .show-meta,
-  .show-buttons,
-  .show-nav,
-  .show-thumbnails {
-    all: unset; // annule le grid-area
-    width: 100%;
+  body {
+    overflow-x: hidden;
   }
 
-  .show-media {
-    border: none;
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
-  .show-description p {
-    text-align: left;
-  }
-
-  .container-hello {
-    flex-direction: column;
-    padding: 2rem;
-    gap: 2rem;
-
-    .hello-presentation {
-      text-align: center;
-
-      h1 {
-        font-size: 3rem;
-      }
-
-      .hello-badge {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .hello-location {
-        display: inline-block;
-        margin-top: 1rem;
-        font-size: 0.875rem;
-      }
-    }
-
-    .hello-photo {
-      display: flex;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-      }
-    }
-  }
-
-  .container-about {
-    padding: 2rem 1rem;
-
-    .about-box {
-      position: relative;
-      text-align: center;
-
-      .corner-symbol {
-        display: none; // masque les + sur mobile
-      }
-
-      #journey,
-      #skills,
-      #languages {
-        margin-bottom: 2rem;
-
-        h3 {
-          font-size: 1.2rem;
-          line-height: 1.4;
-        }
-
-        p {
-          font-size: 0.75rem;
-        }
-      }
-    }
-  }
-
-  .works-wrapper {
-    padding: 1.5rem;
-  }
-
-  .works-intro {
-    margin-bottom: 2rem;
-
-    .works-blur {
-      padding: 1rem;
-      border: 1px solid $gray;
-
-      .corner-symbol {
-        display: none; // On peut les cacher sur mobile pour alléger
-      }
-
-      .works-sharp {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .work-carousel-title {
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .work-carousel-client {
-          font-size: 0.75rem;
-        }
-      }
-    }
-  }
-
-  .works-list {
-    list-style: none;
-    padding: 0;
-
-    li {
-      margin-bottom: 2rem;
-    }
-
-    .work-case {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-      border: 1px solid $gray;
-
-      .work-reference {
-        .work-name h2 {
-          font-size: 1.25rem;
-        }
-
-        .work-client {
-          font-size: 0.75rem;
-        }
-      }
-
-      .work-description p {
-        font-size: 0.875rem;
-        line-height: 1.4;
-      }
-
-      .work-image {
-        text-align: center;
-
-        .corner-symbol {
-          display: none;
-        }
-
-        h4 {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
-  .contact-wrapper {
-    flex-direction: column;
-    padding: 2rem;
-    align-items: center;
+  .btn {
+    padding: 0.75rem 1.25rem;
+    //font-size: 0.875rem;
     text-align: center;
-
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.1;
-    }
-
-    .btn--primary {
-      margin-top: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .contact-photo {
-      margin-top: 2rem;
-
-      img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-      }
-    }
-  }
-
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-
-    .logo-header {
-      flex-direction: column;
-      align-items: center;
-
-      .logo-text {
-        font-size: 1rem;
-      }
-    }
-
-    .navbar {
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      .navbar-button {
-        text-align: center;
-      }
-    }
-  }
-
-  .footer-container {
-    text-align: center;
-
-    .skills-banner {
-      display: none; // cacher les bandeaux répétitifs sur mobile
-    }
-
-    .back-to-top {
-      margin: 1.5rem 0;
-    }
-
-    .sub-footer {
-      flex-direction: column;
-      gap: 1rem;
-
-      .contact-footer {
-        flex-direction: column;
-        align-items: center;
-
-        .mail-footer h5 {
-          font-size: 1rem;
-        }
-
-        .social-links {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-      }
-    }
   }
 }
+
+// ===================================
+// 2. Header / Navbar
+// ===================================
+// @media (max-width: 1024px) {
+//   .header-container {
+//     height: fit-content;
+
+//     .logo-header {
+//       flex-direction: column;
+//       align-items: center;
+
+//       .logo-text {
+//         display: none;
+//       }
+//     }
+
+//     .navbar {
+//       .navbar-button {
+//         text-align: center;
+//       }
+//     }
+//   }
+// }
+
+// ===================================
+// 3. Home Page
+// ===================================
+// @media (max-width: 1024px) {
+//   .container-hello {
+//     flex-direction: column;
+
+//     .hello-presentation {
+//       text-align: left;
+
+//       .hello-badge {
+//         //font-size: 1rem;
+//         margin-bottom: 1rem;
+//       }
+
+//       .hello-location {
+//         display: inline-block;
+//         margin-top: 1rem;
+//         //font-size: 0.875rem;
+//       }
+//     }
+
+//     .hello-photo {
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+// }
+
+// ===================================
+// 4. Show Page
+// ===================================
+// @media (max-width: 1024px) {
+//   .show-item {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1.5rem;
+//     padding: 1rem;
+//   }
+
+//   .show-title,
+//   .show-number,
+//   .show-description,
+//   .show-media,
+//   .show-meta,
+//   .show-buttons,
+//   .show-nav,
+//   .show-thumbnails {
+//     all: unset;
+//     width: 100%;
+//   }
+
+//   .show-description p {
+//     text-align: left;
+//   }
+
+//   .show-media {
+//     border: none;
+//   }
+// }
+
+// ===================================
+// 5. Works Page
+// ===================================
+// @media (max-width: 1024px) {
+//   .works-wrapper {
+//     padding: 1.5rem;
+//   }
+
+//   .works-intro {
+//     margin-bottom: 2rem;
+
+//     .works-blur {
+//       padding: 1rem;
+//       border: 1px solid $gray;
+
+//       .corner-symbol {
+//         display: none;
+//       }
+
+//       .works-sharp {
+//         flex-direction: column;
+//         align-items: flex-start;
+
+//         .work-carousel-title {
+//           font-size: 1.5rem;
+//         }
+
+//         .work-carousel-client {
+//           font-size: 0.75rem;
+//         }
+//       }
+//     }
+//   }
+
+//   .works-list {
+//     padding: 0;
+
+//     li {
+//       margin-bottom: 2rem;
+//     }
+
+//     .work-case {
+//       flex-direction: column;
+//       gap: 1rem;
+//       padding: 1rem;
+
+//       .work-name h2 {
+//         font-size: 1.25rem;
+//       }
+
+//       .work-description p {
+//         font-size: 0.875rem;
+//       }
+
+//       .work-image .corner-symbol {
+//         display: none;
+//       }
+
+//       .work-image h4 {
+//         font-size: 1rem;
+//       }
+//     }
+//   }
+// }
+
+// ===================================
+// 6. Contact Page
+// ===================================
+// @media (max-width: 1024px) {
+//   .contact-wrapper {
+//     flex-direction: column;
+//     align-items: center;
+//     text-align: center;
+//     padding: 2rem;
+
+//     h1 {
+//       font-size: 2.5rem;
+//     }
+
+//     .btn--primary {
+//       font-size: 1rem;
+//       margin-top: 1rem;
+//     }
+
+//     .contact-photo {
+//       margin-top: 2rem;
+
+//       img {
+//         max-width: 300px;
+//       }
+//     }
+//   }
+// }
+
+// ===================================
+// 7. Footer
+// ===================================
+// @media (max-width: 1024px) {
+//   .footer-container {
+//     text-align: center;
+
+//     .back-to-top {
+//       margin: 1.5rem 0;
+//     }
+
+//     .sub-footer {
+//       flex-direction: column;
+//       align-items: center;
+//       gap: 1rem;
+
+//       .mail-footer h5 {
+//         font-size: 1rem;
+//       }
+
+//       .social-links {
+//         flex-direction: column;
+//         gap: 0.25rem;
+//       }
+//     }
+//   }
+// }

@@ -7,7 +7,7 @@
       <div class="corner-symbol bottom-left"><p class="med">+</p></div>
       <div class="corner-symbol bottom-right"><p class="med">+</p></div>
       <div class="works-sharp">
-        <h4 class="work-carousel-title">WORKS 001</h4>
+        <h3 class="work-carousel-title">WORKS 001</h3>
         <p class="work-carousel-client sml">
           11010101001011110010<br><br>CLIENT 20233554448<br>5558 5848 54
         </p>
@@ -18,12 +18,12 @@
 
   <ul class="work-list">
     <% @works.each do |work| %>
-      <li>
+      <li class="work-list-item">
         <%= link_to work_path(work.slug) do %>
           <div class="work-case">
             <div class="work-reference">
               <div class="work-name">
-                <h2>WORKS <%=work.number%></h2>
+                <h3>WORKS <%=work.number%></h3>
               </div>
               <div class="work-client">
                 <p class="sml">11010101001011110010<br><br><%=work.client%><br><%=work.title%></p>
