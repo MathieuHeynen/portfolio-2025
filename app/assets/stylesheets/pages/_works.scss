@@ -80,6 +80,7 @@
     align-content: center;
     justify-items: center;
     border: solid $gray 1px;
+    padding-bottom: 56.25%; /* 16:9 - 56.25% | 4:3 - 75% | 3:2 - 66.66% | 8:5 - 62.5% */
   }
 
   .work-blur {
