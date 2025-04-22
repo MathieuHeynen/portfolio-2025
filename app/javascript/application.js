@@ -2,3 +2,4 @@
 import "@hotwired/turbo-rails";
 import "controllers";
 import "./header_height";
+import "./navbar_animation";

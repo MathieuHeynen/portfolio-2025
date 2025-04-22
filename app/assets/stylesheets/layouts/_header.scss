@@ -9,6 +9,8 @@
 }
 
 .navbar {
+  position: relative;
+  z-index: 1;
   height: 3rem;
   display: flex;
   border: solid $gray 1px;
@@ -17,6 +19,8 @@
 }
 
 .navbar-button {
+  position: relative;
+  z-index: 1;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   display: flex;
@@ -25,6 +29,24 @@
   text-decoration: none;
   font-weight: $font-weight-max;
   font-size: $font-size-xs;
+
+  &.highlighted {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
+}
+
+.highlight {
+  position: absolute;
+  z-index: 0;
+  top: 0; // pour qu’elle colle en haut de .navbar
+  left: 0;
+  height: 100%; // prend toute la hauteur de .navbar
+  width: 0;
+  background-color: $gray;
+  border-radius: 3.125rem;
+  z-index: 0;
+  transition: all 0.3s ease;
 }
 
 .logo-header {
