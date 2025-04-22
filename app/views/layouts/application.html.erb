@@ -25,9 +25,9 @@
         <% end %>
         <div class="navbar">
           <div class="highlight"></div>
-           <%= link_to "BIO", root_path, class: "navbar-button #{'active' if current_page?(root_path)}" %>
-  <%= link_to "WORKS", works_path, class: "navbar-button #{'active' if current_page?(works_path)}" %>
-  <%= link_to "REACH ME", contact_path, class: "navbar-button #{'active' if current_page?(contact_path)}" %>
+          <%= link_to "BIO", root_path, class: "navbar-button #{'active' if current_page?(root_path)}", data: { turbo: false } %>
+          <%= link_to "WORKS", works_path, class: "navbar-button #{'active' if current_page?(works_path)}", data: { turbo: false } %>
+          <%= link_to "REACH ME", contact_path, class: "navbar-button #{'active' if current_page?(contact_path)}", data: { turbo: false } %>
         </div>
       </div>
     </div>

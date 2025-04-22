@@ -44,9 +44,6 @@
   font-style: normal;
   font-weight: 450;
   line-height: 6.625rem;
-  width: 0.5rem; /* Réduit l'espacement avec le texte */
-  /* Facultatif pour réduire encore plus l'espace */
-  // margin: 0 -0.2em;
 }
 
 .contact-hello {
@@ -54,6 +51,39 @@
   font-style: italic;
   font-weight: 900;
   line-height: 6.625rem;
-  margin: 0 -0.2rem;
-  padding-right: 0.3rem;
+  margin-left: -0.75rem;
+  padding-right: 0.8rem;
+}
+
+.btn--to-contact {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* This is the animated fill background */
+.btn--to-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%; /* Starts with no width */
+  height: 100%;
+  background-color: $gray; /* Fill color */
+  z-index: -1; /* Behind the text */
+  transition: width 0.4s ease;
+}
+
+/* Hover state triggers the background to slide in */
+.btn--to-contact:hover::before {
+  width: 100%;
+}
+
+/* Text color flips once hover starts (syncs nicely) */
+.btn--to-contact:hover {
+  color: $light-gray;
 }

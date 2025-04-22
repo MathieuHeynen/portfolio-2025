@@ -6,3 +6,13 @@ div {
   background-color: $green;
   border: solid $blue 1px;
 }
+
+body.nav-is-leaving {
+  .navbar-button {
+    pointer-events: none; // bloque le hover
+  }
+
+  .highlight {
+    transition: none !important; // stoppe le déplacement visuel
+  }
+}
