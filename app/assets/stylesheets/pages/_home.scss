@@ -1,3 +1,5 @@
+@use "../utils/mixins" as *;
+
 .container-hello {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -116,4 +118,31 @@
     bottom: 0;
     right: 0;
   }
+}
+
+.btn--hello {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+
+  @include animated-fill-bg($gray);
+
+  .btn-text {
+    @include text-reveal($gray, $light-gray, 1.75em);
+  }
+
+  &:hover .btn-text {
+    background-position-x: 0%;
+  }
+
+  a {
+    font-weight: 1000;
+    transition: ease;
+  }
+}
+
+#self-presentation {
+  scroll-margin-top: -3.125rem; // ou une valeur visuelle ajustée
 }

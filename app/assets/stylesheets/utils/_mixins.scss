@@ -25,3 +25,45 @@
     }
   }
 }
+
+/// @mixin text-reveal($color-from, $color-to, $padding-offset, $direction: to right)
+/// Crée un masque de texte dynamique avec reveal horizontal
+@mixin text-reveal(
+  $color-from,
+  $color-to,
+  $padding-offset,
+  $direction: to right
+) {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient($direction, #{$color-to} 50%, #{$color-from} 50%);
+  background-size: 300% 100%;
+  background-position-x: calc(100% + #{$padding-offset});
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  transition: background-position 0.4s ease;
+}
+
+/// @mixin animated-fill-bg($color)
+/// Crée un fond qui se remplit avec un effet scaleX
+@mixin animated-fill-bg($color) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: $color;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
