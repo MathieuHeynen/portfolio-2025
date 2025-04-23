@@ -6,8 +6,8 @@
 
 .skills-banner {
   height: 5.8125rem;
-  display: flex;
   overflow: hidden; /* pour éviter tout débordement */
+  align-content: center;
 
   .skills-item {
     margin: 0;
@@ -17,8 +17,14 @@
   }
 }
 
+.skills-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
 .back-to-top {
-  height: 5.8125rem;
+  height: 4rem;
   align-content: center;
 
   p {
@@ -33,6 +39,7 @@
   align-items: end;
 
   h5 {
+    padding-bottom: 1rem;
     margin: 0;
   }
 

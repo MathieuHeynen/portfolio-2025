@@ -60,30 +60,41 @@
   display: inline-block;
   background-color: transparent;
   overflow: hidden;
-  transition: color 0.3s ease;
   cursor: pointer;
   z-index: 1;
-}
 
-/* This is the animated fill background */
-.btn--to-contact::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%; /* Starts with no width */
-  height: 100%;
-  background-color: $gray; /* Fill color */
-  z-index: -1; /* Behind the text */
-  transition: width 0.4s ease;
-}
+  .btn-text {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to right, $light-gray 50%, $gray 50%);
+    background-size: 300% 100%;
 
-/* Hover state triggers the background to slide in */
-.btn--to-contact:hover::before {
-  width: 100%;
-}
+    background-position-x: calc(100% + 1.75em);
 
-/* Text color flips once hover starts (syncs nicely) */
-.btn--to-contact:hover {
-  color: $light-gray;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: background-position 0.4s ease;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: $gray;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:hover .btn-text {
+    background-position-x: 0%;
+  }
 }

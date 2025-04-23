@@ -35,15 +35,16 @@
     <%= yield %>
 
     <div class="footer-container">
+
       <div class="skills-banner">
-        <div class="skills-item"><h4>//   GRAPHIC DESIGN</h4></div>
-        <div class="skills-item"><h4>//   WEB DEV</h4></div>
-        <div class="skills-item"><h4>//   PRINT</h4></div>
-        <div class="skills-item"><h4>//   ILLUSTRATION</h4></div>
-        <div class="skills-item"><h4>//   FRONT-END DEV</h4></div>
-        <div class="skills-item"><h4>//   GRAPHIC DESIGN</h4></div>
-        <div class="skills-item"><h4>//   WEB DEV</h4></div>
+        <div class="skills-track">
+          <% skills = ["//   GRAPHIC DESIGN","//   WEB DEV","//   PRINT","//   ILLUSTRATION","//   FRONT-END DEV","//   VISUAL IDENTITY","//   TYPOGRAPHY","//   LOGO","//   GAMER"]%>
+          <% skills.each do |skill|%>
+            <div class="skills-item"><h4><%=skill%></h4></div>
+          <%end%>
+        </div>
       </div>
+
       <div class="back-to-top">
         <p class="med-bold">BACK ON TOP</p>
       </div>
