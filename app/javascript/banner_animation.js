@@ -22,7 +22,7 @@ document.addEventListener("turbo:load", () => {
   }
 
   let offset = 0;
-  const speed = 1;
+  const speed = 0.5;
 
   const animate = () => {
     offset -= speed;

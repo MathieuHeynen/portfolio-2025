@@ -9,10 +9,6 @@
 }
 
 .show-item {
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(15, 1fr);
-  gap: 0.625rem;
   margin: 3.125rem;
   height: -webkit-fill-available;
   overflow: hidden;
@@ -20,38 +16,108 @@
 }
 
 .show-title {
-  grid-area: 1 / 1 / 4 / 8;
-}
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
 
-.show-number {
-  grid-area: 4 / 1 / 7 / 5;
-}
+  h1 {
+    line-height: 0.75;
+  }
 
-.show-description {
-  grid-area: 1 / 13 / 4 / -1;
+  .show-description {
+    p {
+      text-align: right;
+    }
+  }
 
-  p {
-    text-align: right;
+  .show-meta {
+    text-align: left;
   }
 }
 
-.show-meta {
-  grid-area: 1 / 9 / 4 / 13;
-}
+.show-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 
-.show-media {
-  grid-area: 4 / 5 / -1 / -1;
-  border: solid $gray 1px;
-}
+  h1 {
+    line-height: 0.75;
+  }
 
-.show-thumbnails {
-  grid-area: 10 / 1 / -1 / 5;
-}
+  .show-media {
+    border: solid $gray 1px;
+    width: 100%;
 
-.show-buttons {
-  grid-area: 8 / 1 / 10 / 5;
-}
+    .corner-symbol {
+      //font
+      text-align: center;
+      font-family: "Roboto Flex";
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 100;
+      line-height: normal;
+      text-transform: uppercase;
+      //position
+      position: absolute;
+      display: flex;
+      width: 1.56rem;
+      height: 1.56rem;
+      justify-content: center;
+      align-items: center;
+    }
 
-.show-nav {
-  grid-area: 7 / 1 / 8 / 5;
+    .top-left {
+      // top: 0;
+      left: 0;
+    }
+
+    .top-right {
+      top: 0;
+      right: 0;
+    }
+
+    .bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .show-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+
+    .show-thumbnails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr; // Chaque ligne prend une hauteur égale
+      gap: 1rem;
+
+      .image-miniature {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // si c'est une image, pour qu'elle remplisse bien
+      }
+    }
+
+    .show-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    .show-nav {
+      justify-self: center;
+      align-self: center;
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
