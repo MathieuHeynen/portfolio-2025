@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (image) {
     window.addEventListener("scroll", () => {
       const scrolled = window.scrollY;
-      image.style.transform = `translateY(${scrolled * 0.3}px)`;
+      image.style.transform = `translateY(${scrolled * 0.15}px)`;
     });
   }
 });

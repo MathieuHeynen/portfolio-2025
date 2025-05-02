@@ -8,7 +8,7 @@
 // ===================================
 @media (max-width: 1024px) {
   html {
-    font-size: 75%;
+    // font-size: 75%;
   }
 
   body {
@@ -29,7 +29,7 @@
 
 @media (max-width: 992px) {
   html {
-    font-size: 65%;
+    // font-size: 65%;
   }
 
   body {
@@ -50,7 +50,7 @@
 
 @media (max-width: 768px) {
   html {
-    font-size: 45%;
+    // font-size: 45%;
   }
 
   body {
@@ -71,7 +71,7 @@
 
 @media (max-width: 600px) {
   html {
-    font-size: 47%;
+    // font-size: 47%;
   }
 
   body {
@@ -85,8 +85,11 @@
 
   .btn {
     padding: 0.75rem 1.25rem;
-    //font-size: 0.875rem;
     text-align: center;
+  }
+
+  .corner-symbol p {
+    font-size: x-large;
   }
 }
 
@@ -139,26 +142,31 @@
       grid-column: 1 / -1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       text-align: center;
       height: 50%;
       align-self: baseline;
 
+      h1 {
+        font-size: $font-size-lg;
+      }
+
       .hello-badge {
-        //font-size: 1rem;
+        margin: 0;
+        padding: 0;
         align-self: center;
-        margin-bottom: 2rem;
         background-color: $gray;
 
         .btn-text {
-          padding-inline: 2rem;
+          margin-inline: 1.3rem;
+          font-size: $font-size-base;
           -webkit-text-fill-color: $light-gray;
+          line-height: 3;
         }
       }
 
       .hello-location {
+        margin-top: 1.4rem;
         display: inline-block;
-        margin-top: 2rem;
         font-size: medium;
       }
     }
@@ -180,24 +188,26 @@
 
   .about-box {
     margin: 0;
-    padding: 3rem;
+    padding: 1.4rem;
+
+    h3 {
+      font-size: $font-size-base;
+    }
   }
 
-  .med {
-    font-size: medium;
-  }
-
-  .med-bold {
-    padding-top: 1rem;
-    font-size: small;
-  }
-
-  .corner-symbol p {
-    font-size: x-large;
-  }
-
+  #journey,
+  #skills,
   #languages {
-    margin-top: 3.75rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+
+    .med {
+      margin-bottom: 1rem;
+    }
+
+    .med-bold {
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -205,152 +215,162 @@
 // 4. Show Page
 // ===================================
 // @media (max-width: 1024px) {
-//   .show-item {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 1.5rem;
-//     padding: 1rem;
-//   }
 
-//   .show-title,
-//   .show-number,
-//   .show-description,
-//   .show-media,
-//   .show-meta,
-//   .show-buttons,
-//   .show-nav,
-//   .show-thumbnails {
-//     all: unset;
-//     width: 100%;
-//   }
-
-//   .show-description p {
-//     text-align: left;
-//   }
-
-//   .show-media {
-//     border: none;
-//   }
 // }
 
 // ===================================
 // 5. Works Page
 // ===================================
-// @media (max-width: 1024px) {
-//   .works-wrapper {
-//     padding: 1.5rem;
-//   }
+@media (max-width: 600px) {
+  .work-intro {
+    margin-bottom: 2rem;
 
-//   .works-intro {
-//     margin-bottom: 2rem;
+    .works-blur {
+      border: 1px solid $gray;
+      margin: 0;
 
-//     .works-blur {
-//       padding: 1rem;
-//       border: 1px solid $gray;
+      .works-sharp {
+        margin: 3rem;
+        flex-direction: column;
+        align-items: flex-start;
 
-//       .corner-symbol {
-//         display: none;
-//       }
+        .work-carousel-title {
+          font-size: $font-size-xs;
+        }
+        .work-carousel-client {
+          align-self: end;
+          font-size: $font-size-sml;
+        }
+      }
+    }
+  }
 
-//       .works-sharp {
-//         flex-direction: column;
-//         align-items: flex-start;
+  .work-list {
+    padding: 0;
 
-//         .work-carousel-title {
-//           font-size: 1.5rem;
-//         }
+    li {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
 
-//         .work-carousel-client {
-//           font-size: 0.75rem;
-//         }
-//       }
-//     }
-//   }
+    .work-case {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1.5rem;
 
-//   .works-list {
-//     padding: 0;
+      .work-reference {
+        display: flex;
+        flex-direction: row;
 
-//     li {
-//       margin-bottom: 2rem;
-//     }
+        .work-client {
+          text-align: right;
+        }
 
-//     .work-case {
-//       flex-direction: column;
-//       gap: 1rem;
-//       padding: 1rem;
+        .work-name h3 {
+          font-size: $font-size-xs;
+        }
+      }
 
-//       .work-name h2 {
-//         font-size: 1.25rem;
-//       }
+      .work-description {
+        display: none;
+        font-size: $font-size-med;
+      }
 
-//       .work-description p {
-//         font-size: 0.875rem;
-//       }
+      .work-image {
+        margin: 0;
+      }
 
-//       .work-image .corner-symbol {
-//         display: none;
-//       }
-
-//       .work-image h4 {
-//         font-size: 1rem;
-//       }
-//     }
-//   }
-// }
+      .work-image h4 {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
 
 // ===================================
 // 6. Contact Page
 // ===================================
-// @media (max-width: 1024px) {
-//   .contact-wrapper {
-//     flex-direction: column;
-//     align-items: center;
-//     text-align: center;
-//     padding: 2rem;
+@media (max-width: 600px) {
+  .contact-wrapper {
+    flex-direction: column;
 
-//     h1 {
-//       font-size: 2.5rem;
-//     }
+    .contact-presentation {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      height: 50%;
+      align-self: baseline;
 
-//     .btn--primary {
-//       font-size: 1rem;
-//       margin-top: 1rem;
-//     }
+      .btn--to-contact {
+        align-self: center;
+        margin-bottom: 2rem;
+        background-color: $gray;
 
-//     .contact-photo {
-//       margin-top: 2rem;
+        .btn-text {
+          padding-inline: 2rem;
+          -webkit-text-fill-color: $light-gray;
+        }
+      }
+    }
 
-//       img {
-//         max-width: 300px;
-//       }
-//     }
-//   }
-// }
+    .contact-photo {
+      justify-content: center;
+      grid-column: 1 / -1;
+      justify-self: center;
+      overflow: hidden;
+
+      .parallax-image {
+        max-width: none;
+        max-height: none;
+        height: auto;
+        width: 140%;
+      }
+    }
+
+    .med {
+      font-size: medium;
+    }
+
+    .med-bold {
+      padding-top: 1rem;
+      font-size: small;
+    }
+  }
+}
 
 // ===================================
 // 7. Footer
 // ===================================
-// @media (max-width: 1024px) {
-//   .footer-container {
-//     text-align: center;
+@media (max-width: 600px) {
+  .footer-container {
+    text-align: center;
 
-//     .back-to-top {
-//       margin: 1.5rem 0;
-//     }
+    .back-to-top {
+      margin: 1.5rem 0;
+    }
 
-//     .sub-footer {
-//       flex-direction: column;
-//       align-items: center;
-//       gap: 1rem;
+    .sub-footer {
+      display: grid;
+      grid-column-gap: 0;
+      grid-template-columns: 0.75fr 2fr 0.75fr;
 
-//       .mail-footer h5 {
-//         font-size: 1rem;
-//       }
+      .mail-footer h5 {
+        font-size: small;
+      }
 
-//       .social-links {
-//         flex-direction: column;
-//         gap: 0.25rem;
-//       }
-//     }
-//   }
-// }
+      .social-links {
+        gap: 1rem;
+      }
+
+      .year,
+      .author {
+        margin-bottom: 0.8rem;
+        align-self: self-end;
+        font-size: 5%;
+      }
+    }
+  }
+}
