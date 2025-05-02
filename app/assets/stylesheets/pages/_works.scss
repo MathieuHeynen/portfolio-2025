@@ -65,7 +65,7 @@
     grid-column: 4 / span 3;
     margin-top: 1.56rem;
     margin-bottom: 1.56rem;
-    line-height: 1;
+    line-height: 1.2;
     padding-right: 1.56rem;
   }
 
@@ -75,12 +75,13 @@
     margin-bottom: 1.56rem;
     position: relative;
     width: 100%; /* largeur adaptable */
-    // padding-top: 56.25%; /* 16 / 9 = 0.5625 → ratio 4:3 */
     overflow: hidden; /* optionnel, mais recommandé */
     align-content: center;
     justify-items: center;
     border: solid $gray 1px;
-    padding-bottom: 56.25%; /* 16:9 - 56.25% | 4:3 - 75% | 3:2 - 66.66% | 8:5 - 62.5% */
+    aspect-ratio: 4 / 3;
+    // padding-top: 56.25%; /* 16 / 9 = 0.5625 → ratio 4:3 */
+    // padding-bottom: 56.25%; /* 16:9 - 56.25% | 4:3 - 75% | 3:2 - 66.66% | 8:5 - 62.5% */
   }
 
   .work-blur {

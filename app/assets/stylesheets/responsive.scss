@@ -71,7 +71,7 @@
 
 @media (max-width: 600px) {
   html {
-    font-size: 30%;
+    font-size: 47%;
   }
 
   body {
@@ -93,55 +93,113 @@
 // ===================================
 // 2. Header / Navbar
 // ===================================
-// @media (max-width: 1024px) {
-//   .header-container {
-//     height: fit-content;
+@media (max-width: 1024px) {
+  .header-container {
+    height: fit-content;
 
-//     .logo-header {
-//       flex-direction: column;
-//       align-items: center;
+    .logo-header {
+      flex-direction: column;
+      align-items: center;
+    }
 
-//       .logo-text {
-//         display: none;
-//       }
-//     }
+    .navbar {
+      .navbar-button {
+        text-align: center;
+      }
+    }
+  }
+}
 
-//     .navbar {
-//       .navbar-button {
-//         text-align: center;
-//       }
-//     }
-//   }
-// }
+@media (max-width: 600px) {
+  .header-container {
+    margin: 3rem;
+  }
 
+  .logo-header {
+    width: 25%;
+    height: 25%;
+
+    img {
+      margin: 0;
+    }
+
+    .logo-text {
+      display: none;
+    }
+  }
+}
 // ===================================
 // 3. Home Page
 // ===================================
-// @media (max-width: 1024px) {
-//   .container-hello {
-//     flex-direction: column;
+@media (max-width: 600px) {
+  .container-hello {
+    flex-direction: column;
 
-//     .hello-presentation {
-//       text-align: left;
+    .hello-presentation {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      height: 50%;
+      align-self: baseline;
 
-//       .hello-badge {
-//         //font-size: 1rem;
-//         margin-bottom: 1rem;
-//       }
+      .hello-badge {
+        //font-size: 1rem;
+        align-self: center;
+        margin-bottom: 2rem;
+        background-color: $gray;
 
-//       .hello-location {
-//         display: inline-block;
-//         margin-top: 1rem;
-//         //font-size: 0.875rem;
-//       }
-//     }
+        .btn-text {
+          padding-inline: 2rem;
+          -webkit-text-fill-color: $light-gray;
+        }
+      }
 
-//     .hello-photo {
-//       display: flex;
-//       justify-content: center;
-//     }
-//   }
-// }
+      .hello-location {
+        display: inline-block;
+        margin-top: 2rem;
+        font-size: medium;
+      }
+    }
+
+    .hello-photo {
+      justify-content: center;
+      grid-column: 1 / -1;
+      justify-self: center;
+      overflow: hidden;
+
+      .parallax-image {
+        max-width: none;
+        max-height: none;
+        height: auto;
+        width: 140%;
+      }
+    }
+  }
+
+  .about-box {
+    margin: 0;
+    padding: 3rem;
+  }
+
+  .med {
+    font-size: medium;
+  }
+
+  .med-bold {
+    padding-top: 1rem;
+    font-size: small;
+  }
+
+  .corner-symbol p {
+    font-size: x-large;
+  }
+
+  #languages {
+    margin-top: 3.75rem;
+  }
+}
 
 // ===================================
 // 4. Show Page
