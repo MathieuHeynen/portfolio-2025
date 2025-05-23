@@ -6,3 +6,4 @@ import "./navbar_animation";
 import "./banner_animation";
 import "./scroll_to";
 import "./parallax_effect";
+import "./burger.js";
