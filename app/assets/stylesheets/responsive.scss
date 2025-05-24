@@ -190,6 +190,25 @@
 // ===================================
 @media (max-width: 480px) {
   .show-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-title {
+    h1 {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .show-content {
+    h1 {
+      font-size: $font-size-lg;
+    }
   }
 }
 
@@ -305,12 +324,15 @@
       }
 
       .btn--to-contact {
+        margin-bottom: 1.4rem;
+        padding: 0;
         align-self: center;
-        margin-bottom: 2rem;
         background-color: $gray;
 
         .btn-text {
-          padding-inline: 2rem;
+          font-size: $font-size-base;
+          padding-inline: 1.3rem;
+          line-height: 3;
           -webkit-text-fill-color: $light-gray;
         }
       }

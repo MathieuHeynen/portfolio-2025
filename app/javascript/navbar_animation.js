@@ -10,10 +10,18 @@ const initNavbarHighlight = () => {
 
   // ✅ Attendre que tout soit prêt visuellement
   requestAnimationFrame(() => {
-    moveHighlightTo(activeButton, true); // instantané sans animation
-    requestAnimationFrame(() => {
-      highlight.classList.add("visible"); // fade-in une fois bien placée
-    });
+    const tryMove = () => {
+      const width = activeButton.offsetWidth;
+      if (width > 0) {
+        moveHighlightTo(activeButton, true);
+        highlight.classList.add("visible");
+      } else {
+        // Retry next frame until it's measurable
+        requestAnimationFrame(tryMove);
+      }
+    };
+
+    tryMove();
   });
 
   buttons.forEach((button) => {
@@ -25,6 +33,11 @@ const initNavbarHighlight = () => {
       const active = document.querySelector(".navbar-button.active");
       if (active) moveHighlightTo(active);
     });
+  });
+
+  window.addEventListener("resize", () => {
+    const active = document.querySelector(".navbar-button.active");
+    if (active) moveHighlightTo(active, true);
   });
 
   function moveHighlightTo(button, instant = false) {

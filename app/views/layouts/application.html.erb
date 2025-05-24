@@ -25,9 +25,12 @@
         <% end %>
         <div class="navbar">
           <div class="highlight"></div>
-          <%= link_to "BIO", root_path, class: "navbar-button #{'active' if current_page?(root_path)}", data: { turbo: false } %>
-          <%= link_to "WORKS", works_path, class: "navbar-button #{'active' if current_page?(works_path)}", data: { turbo: false } %>
-          <%= link_to "REACH ME", contact_path, class: "navbar-button #{'active' if current_page?(contact_path)}", data: { turbo: false } %>
+          <%= link_to "BIO", root_path, class: "navbar-button #{'active' if current_page?(root_path)} btn-clickable", data: { turbo: false } %>
+          <%= link_to "WORKS", works_path, class: "navbar-button #{'active' if current_page?(works_path)}" %>
+          <% if controller_name == "works" && action_name == "show" && @work.present? %>
+            <%= content_tag :span, "WORK#{@work.id.to_s.rjust(3, '0')}", class: "navbar-button active navbar-button--project animated-project" %>
+          <% end %>
+          <%= link_to "REACH ME", contact_path, class: "navbar-button #{'active' if current_page?(contact_path)} btn-clickable", data: { turbo: false } %>
         </div>
         <button class="burger" id="burger-btn" aria-label="Toggle menu">
           <span></span>
@@ -53,7 +56,7 @@
       </div>
 
       <div class="back-to-top">
-        <a href="#header" id="btn-back-top" class="med-bold">BACK ON TOP</a>
+        <a href="#header" id="btn-back-top" class="med-bold btn-clickable">BACK ON TOP</a>
       </div>
       <div class="sub-footer">
         <div class="year">
@@ -65,10 +68,10 @@
             </div>
             <div class="social-footer">
               <div class="social-links">
-                <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/" %>
-                <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen" %>
-                <%= link_to "GITHUB", "https://github.com/MathieuHeynen" %>
-                <%= link_to "DRIBBBLE", "https://dribbble.com/easur" %>
+                <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/", class: "btn-clickable" %>
+                <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen", class: "btn-clickable" %>
+                <%= link_to "GITHUB", "https://github.com/MathieuHeynen", class: "btn-clickable" %>
+                <%= link_to "DRIBBBLE", "https://dribbble.com/easur", class: "btn-clickable" %>
               </div>
             </div>
           </div>
