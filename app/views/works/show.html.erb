@@ -1,14 +1,7 @@
 <div class="show-container">
   <div class="show-item">
     <div class="show-title">
-      <h1>WORK</h1>
-      <div class="show-meta">
-        <p class="sml">
-          11010101001011110010<br><br>
-          <%= @work.client %><br>
-          <%= @work.title %>
-        </p>
-      </div>
+      <h1>WORK <%= @work.number %></h1>
       <div class="show-description">
         <p class="med"><%= @work.description %></p>
       </div>
@@ -16,26 +9,32 @@
 
     <div class="show-content">
       <div class="show-sidebar">
-        <h1><%= @work.number %></h1>
+      <div class="show-meta">
+        <p class="sml">
+          11010101001011110010<br><br>
+          <%= @work.client %><br>
+          <%= @work.title %>
+        </p>
+      </div>
         <div class="show-nav">
           <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary" %>
         </div>
 
         <div class="show-buttons">
           <!-- boutons d'action -->
-          <div class="btn btn--previous">PREVIOUS<br>WORK</div>
-          <div class="btn btn--next">NEXT<br>WORK</div>
+          <div class="btn btn--previous">←PREVIOUS<br>WORK</div>
+          <div class="btn btn--next">NEXT→<br>WORK</div>
         </div>
 
         <div class="show-thumbnails">
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
-          <div class="image-miniature">MINI</div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
+          <div class="image-miniature"><p>IMAGE</p></div>
           <!-- miniatures -->
         </div>
       </div>

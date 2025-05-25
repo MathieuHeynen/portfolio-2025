@@ -6,6 +6,24 @@
 // ===================================
 // 1. Global elements (typography, buttons, layout)
 // ===================================
+@media (max-width: 480px) {
+  h1 {
+    font-size: $font-size-lg;
+  }
+
+  h3,
+  h4 {
+    font-size: $font-size-base;
+  }
+
+  h5 {
+    font-size: $font-size-med;
+  }
+
+  p {
+    font-size: $font-size-sml;
+  }
+}
 
 // ===================================
 // 2. Header / Navbar
@@ -163,10 +181,6 @@
   .about-box {
     margin: 0;
     padding: 1.4rem;
-
-    h3 {
-      font-size: $font-size-base;
-    }
   }
 
   #journey,
@@ -189,26 +203,34 @@
 // 4. Show Page
 // ===================================
 @media (max-width: 480px) {
-  .show-container {
-    display: flex;
-    flex-direction: column;
-  }
-
+  .show-container,
+  .show-title,
+  .show-content,
   .show-item {
     display: flex;
     flex-direction: column;
   }
 
-  .show-title {
-    h1 {
-      font-size: $font-size-lg;
+  .show-item {
+    margin-inline: 1.4rem;
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .show-description {
+    p {
+      font-size: $font-size-sml;
     }
   }
 
-  .show-content {
-    h1 {
-      font-size: $font-size-lg;
-    }
+  .show-sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-thumbnails {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -407,10 +429,6 @@
 
     .skills-banner {
       height: 3rem;
-
-      h4 {
-        font-size: $font-size-base;
-      }
     }
   }
 }
