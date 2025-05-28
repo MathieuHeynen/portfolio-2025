@@ -1,31 +1,44 @@
 <div class="show-container">
   <div class="show-item">
     <div class="show-title">
-      <h1>WORK <%= @work.number %></h1>
-      <div class="show-description">
-        <p class="med"><%= @work.description %></p>
+      <h1>WORK<br><%= @work.number %></h1>
+      <div class="show-title--informations">
+        <div class="show-client">
+          <p class="sml">
+            11010101001011110010<br><br>
+            <%= @work.client %><br>
+            <%= @work.title %>
+          </p>
+        </div>
+        <div class="show-description">
+          <p class="med"><%= @work.description %></p>
+        </div>
       </div>
     </div>
-
     <div class="show-content">
-      <div class="show-sidebar">
-      <div class="show-meta">
-        <p class="sml">
-          11010101001011110010<br><br>
-          <%= @work.client %><br>
-          <%= @work.title %>
-        </p>
+      <div class="show-media">
+        <div class="corner-symbol top-left"><p>+</p></div>
+        <div class="corner-symbol top-right"><p>+</p></div>
+        <div class="corner-symbol bottom-left"><p>+</p></div>
+        <div class="corner-symbol bottom-right"><p>+</p></div>
+        <h3>IMAGE</h3>
       </div>
-        <div class="show-nav">
-          <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary" %>
-        </div>
-
+      <div class="show-sidebar">
         <div class="show-buttons">
-          <!-- boutons d'action -->
-          <div class="btn btn--previous">←PREVIOUS<br>WORK</div>
-          <div class="btn btn--next">NEXT→<br>WORK</div>
+            <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
+          <div class="show-nav">
+            <% if @previous_work %>
+              <%= link_to 'Previous<br>← Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
+            <% else %>
+              <div class="btn-placeholder"></div>
+            <% end %>
+            <% if @next_work %>
+              <%= link_to 'Next<br>Work →'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
+            <% else %>
+              <div class="btn-placeholder"></div>
+            <% end %>
+          </div>
         </div>
-
         <div class="show-thumbnails">
           <div class="image-miniature"><p>IMAGE</p></div>
           <div class="image-miniature"><p>IMAGE</p></div>
@@ -37,14 +50,6 @@
           <div class="image-miniature"><p>IMAGE</p></div>
           <!-- miniatures -->
         </div>
-      </div>
-
-      <div class="show-media">
-        <div class="corner-symbol top-left"><p>+</p></div>
-        <div class="corner-symbol top-right"><p>+</p></div>
-        <div class="corner-symbol bottom-left"><p>+</p></div>
-        <div class="corner-symbol bottom-right"><p>+</p></div>
-        <h3>IMAGE</h3>
       </div>
     </div>
   </div>
