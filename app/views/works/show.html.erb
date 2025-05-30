@@ -4,11 +4,9 @@
       <h1>WORK<br><%= @work.number %></h1>
       <div class="show-title--informations">
         <div class="show-client">
-          <p class="sml">
-            11010101001011110010<br><br>
-            <%= @work.client %><br>
-            <%= @work.title %>
-          </p>
+          <p class="sml">11010101001011110010</p><br>
+          <p class="sml-bold"><%= @work.client %></p>
+          <p class="sml"><%= @work.title %></p>
         </div>
         <div class="show-description">
           <p class="med"><%= @work.description %></p>
@@ -21,34 +19,34 @@
         <div class="corner-symbol top-right"><p>+</p></div>
         <div class="corner-symbol bottom-left"><p>+</p></div>
         <div class="corner-symbol bottom-right"><p>+</p></div>
-        <h3>IMAGE</h3>
+        <%= image_tag url_for(@work.images.first.variant(resize_to_limit: [1200, 800])), id: "main-image" if @work.images.attached? %>
       </div>
       <div class="show-sidebar">
         <div class="show-buttons">
-            <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
+          <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
           <div class="show-nav">
             <% if @previous_work %>
-              <%= link_to 'Previous<br>← Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
+              <%= link_to 'Previous<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
             <% else %>
               <div class="btn-placeholder"></div>
             <% end %>
             <% if @next_work %>
-              <%= link_to 'Next<br>Work →'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
+              <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
             <% else %>
               <div class="btn-placeholder"></div>
             <% end %>
           </div>
         </div>
-        <div class="show-thumbnails">
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <div class="image-miniature"><p>IMAGE</p></div>
-          <!-- miniatures -->
+        <div class="show-thumbnails" data-controller="image">
+          <% @work.images.each_with_index do |image, index| %>
+            <%= image_tag image.variant(resize_to_limit: [300, 200]),
+                  class: "image-miniature#{' active' if index == 0}",
+                  data: {
+                    image_target: "thumbnail",
+                    action: "click->image#switch",
+                    url: url_for(image.variant(resize_to_limit: [1200, 800]))
+                  } %>
+          <% end %>
         </div>
       </div>
     </div>

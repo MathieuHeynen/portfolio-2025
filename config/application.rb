@@ -38,5 +38,6 @@ module Portfolio2025
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    require "active_storage/engine"
   end
 end

@@ -164,9 +164,22 @@
         height: 100%;
         object-fit: cover; // si c'est une image, pour qu'elle remplisse bien
         align-content: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: border 0.3s ease;
 
-        p {
-          text-align: center;
+        &.active {
+          border: 1px solid $gray;
+          position: relative;
+
+          &::after {
+            content: "+";
+            position: absolute;
+            top: 0.2rem;
+            right: 0.3rem;
+            font-size: 1rem;
+            color: $gray;
+          }
         }
       }
     }

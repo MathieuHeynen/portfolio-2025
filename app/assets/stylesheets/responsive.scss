@@ -206,12 +206,8 @@
   .show-item {
     display: flex;
     flex-direction: column;
-  }
-
-  .show-title {
-    h1 {
-      font-size: $font-size-lg;
-    }
+    gap: 0;
+    height: fit-content;
   }
 
   .show-item {
@@ -220,19 +216,54 @@
     margin-bottom: 2.8rem;
   }
 
+  .show-title {
+    h1 {
+      margin-bottom: 3rem;
+      font-size: $font-size-lg;
+    }
+  }
+
+  .show-buttons {
+    #show-buttons--back {
+      margin: 1.4rem;
+    }
+
+    .show-nav {
+      margin-top: 0 !important;
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  .show-title--informations {
+    flex-direction: column !important;
+  }
+
+  .show-client {
+    margin-bottom: 2rem;
+    text-align: right !important;
+  }
+
   .show-description {
     p {
+      text-align: justify !important;
+      padding-left: 0rem !important;
       font-size: $font-size-sml;
     }
+  }
+
+  .show-media {
+    aspect-ratio: 4 / 3;
+    flex: none !important;
   }
 
   .show-sidebar {
     display: flex;
     flex-direction: column;
+    margin-right: 0rem !important;
   }
 
   .show-thumbnails {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
   }
 }
