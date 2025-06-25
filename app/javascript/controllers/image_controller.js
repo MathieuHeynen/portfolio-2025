@@ -8,10 +8,10 @@ export default class extends Controller {
     const newImageUrl = clickedThumbnail.dataset.url;
     const mainImage = document.querySelector("#main-image");
 
-    // Changer l’image principale
-    mainImage.src = newImageUrl;
+    if (mainImage && newImageUrl) {
+      mainImage.src = newImageUrl;
+    }
 
-    // Gérer l’état "active" sur les miniatures
     this.thumbnailTargets.forEach((t) => t.classList.remove("active"));
     clickedThumbnail.classList.add("active");
   }

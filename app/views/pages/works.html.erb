@@ -1,11 +1,15 @@
 <div class="work-wrapper">
 
   <div class="work-intro">
-    <div class="works-blur">
+    <div
+      class="works-blur"
+      data-controller="carousel"
+      data-action="click->carousel#click">
       <div class="corner-symbol top-left"><p class="med">+</p></div>
       <div class="corner-symbol top-right"><p class="med">+</p></div>
       <div class="corner-symbol bottom-left"><p class="med">+</p></div>
       <div class="corner-symbol bottom-right"><p class="med">+</p></div>
+
       <div class="works-sharp">
         <h3 class="work-carousel-title">WORKS<br>001</h3>
         <p class="work-carousel-client sml">
@@ -37,7 +41,7 @@
               <div class="corner-symbol top-right"><p class="med">+</p></div>
               <div class="corner-symbol bottom-left"><p class="med">+</p></div>
               <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-              <h4>IMAGE</h4>
+              <%= image_tag url_for(work.images.first), id: "main-image" if work.images.attached? %>
             </div>
           </div>
         <% end %>

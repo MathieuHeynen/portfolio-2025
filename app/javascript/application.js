@@ -7,3 +7,4 @@ import "./banner_animation";
 import "./scroll_to";
 import "./parallax_effect";
 import "./burger.js";
+import "./carousel_controller.js";

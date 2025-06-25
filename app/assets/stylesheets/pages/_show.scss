@@ -99,6 +99,13 @@
     min-height: 0; /* Autorise le contenu à shrinker sans casser la hauteur */
     align-content: center;
 
+    img#main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // ou 'contain' si tu veux toujours tout afficher
+      display: block;
+    }
+
     h3 {
       justify-self: center;
     }
@@ -154,9 +161,32 @@
 
     .show-thumbnails {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: 1fr; // Chaque ligne prend une hauteur égale
+      grid-template-columns: repeat(2, 7.5rem); // ~120px si 1rem = 16px
       gap: 1rem;
+      justify-content: start;
+
+      img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        cursor: pointer;
+        transition: border 0.3s ease;
+
+        &.active {
+          border: 1px solid $gray;
+          position: relative;
+
+          &::after {
+            content: "+";
+            position: absolute;
+            top: 0.2rem;
+            right: 0.3rem;
+            font-size: 1rem;
+            color: $gray;
+          }
+        }
+      }
 
       .image-miniature {
         aspect-ratio: 4 / 3;
@@ -167,6 +197,7 @@
         cursor: pointer;
         border: 1px solid transparent;
         transition: border 0.3s ease;
+        margin: 0;
 
         &.active {
           border: 1px solid $gray;

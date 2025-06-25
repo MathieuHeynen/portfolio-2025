@@ -19,7 +19,7 @@
         <div class="corner-symbol top-right"><p>+</p></div>
         <div class="corner-symbol bottom-left"><p>+</p></div>
         <div class="corner-symbol bottom-right"><p>+</p></div>
-        <%= image_tag url_for(@work.images.first.variant(resize_to_limit: [1200, 800])), id: "main-image" if @work.images.attached? %>
+        <%= image_tag url_for(@work.images.first), id: "main-image" if @work.images.attached? %>
       </div>
       <div class="show-sidebar">
         <div class="show-buttons">
@@ -39,13 +39,13 @@
         </div>
         <div class="show-thumbnails" data-controller="image">
           <% @work.images.each_with_index do |image, index| %>
-            <%= image_tag image.variant(resize_to_limit: [300, 200]),
-                  class: "image-miniature#{' active' if index == 0}",
-                  data: {
-                    image_target: "thumbnail",
-                    action: "click->image#switch",
-                    url: url_for(image.variant(resize_to_limit: [1200, 800]))
-                  } %>
+            <%= image_tag image.variant(resize_to_limit: [400, 300]),
+            class: "image-miniature#{' active' if index == 0}",
+            data: {
+              image_target: "thumbnail",
+              action: "click->image#switch",
+              url: url_for(image.variant(resize_to_limit: [1200, 800]))
+            } %>
           <% end %>
         </div>
       </div>
