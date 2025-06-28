@@ -8,3 +8,5 @@ import "./scroll_to";
 import "./parallax_effect";
 import "./burger.js";
 import "./carousel_controller.js";
+import "./roulette_effect.js";
+import "./roulette_footer_backTop.js";

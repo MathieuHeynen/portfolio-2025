@@ -20,7 +20,7 @@
         <%= link_to root_path do %>
           <div class="logo-header">
             <%= image_tag "mascotte.png", alt: "HEY!" %>
-            <h5 class="logo-text">MATHIEU HEYNEN</h5>
+            <h5 class="logo-text roulette-name roulette-anim" id="logo-text">MATHIEU HEYNEN</h5>
           </div>
         <% end %>
         <div class="navbar">
@@ -56,7 +56,10 @@
       </div>
 
       <div class="back-to-top">
-        <a href="#header" id="btn-back-top" class="med-bold btn-clickable">BACK ON TOP</a>
+        <a href="#header" id="btn-back-top" class="med-bold btn-clickable roulette-switch">
+          <span class="switch-face switch-icon">↑</span>
+          <span class="switch-face switch-text med-bold">BACK ON TOP</span>
+        </a>
       </div>
       <div class="sub-footer">
         <div class="year">

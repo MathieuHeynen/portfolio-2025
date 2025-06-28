@@ -72,3 +72,54 @@
     }
   }
 }
+
+.roulette-switch {
+  display: inline-block;
+  position: relative;
+  height: 2em;
+  width: 9em;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  background: none;
+  border: none;
+  user-select: none;
+}
+
+.switch-face {
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.42s cubic-bezier(0.7, 0, 0.5, 1), opacity 0.27s;
+  will-change: transform, opacity;
+  font-weight: bold;
+  pointer-events: none; // évite de capturer le clic sur le texte
+}
+
+.switch-icon {
+  transform: translateY(0);
+  opacity: 1;
+  font-size: $font-size-xs;
+  vertical-align: middle;
+}
+
+.switch-text {
+  transform: translateY(110%);
+  opacity: 0;
+  font-weight: 800;
+  padding-top: 0.5rem;
+}
+
+/* Hover/focus: swap faces */
+.roulette-switch:hover .switch-icon,
+.roulette-switch.is-touched .switch-icon {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+.roulette-switch:hover .switch-text,
+.roulette-switch.is-touched .switch-text {
+  transform: translateY(0);
+  opacity: 1;
+}

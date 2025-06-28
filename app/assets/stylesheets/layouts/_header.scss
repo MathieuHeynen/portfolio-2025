@@ -160,3 +160,21 @@
     top: 50%;
   }
 }
+
+.roulette-name {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+.roulette-window {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: bottom;
+  position: relative;
+}
+.roulette-roller {
+  display: block;
+  transition: transform 0.34s cubic-bezier(0.7, 0, 0.5, 1);
+  will-change: transform;
+}

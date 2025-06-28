@@ -1,19 +1,34 @@
 <div class="work-wrapper">
+  <% works_js = @works.map do |work|
+    {
+      image: (url_for(work.images.first) if work.images.attached?),
+      number: work.number,
+      client: work.client,
+      title: work.title,
+      url: work_path(work.slug)
+    }
+  end %>
+  <div class="work-intro"
+    id="work-intro"
+    data-works="<%= works_js.to_json %>">
 
-  <div class="work-intro">
+    <% first_work = @works.first %>
     <div
-      class="works-blur"
-      data-controller="carousel"
-      data-action="click->carousel#click">
+    class="works-blur"
+    id="works-blur"
+    style="background-image: url('<%= url_for(first_work.images.first) if first_work.images.attached? %>');"
+    >
       <div class="corner-symbol top-left"><p class="med">+</p></div>
       <div class="corner-symbol top-right"><p class="med">+</p></div>
       <div class="corner-symbol bottom-left"><p class="med">+</p></div>
       <div class="corner-symbol bottom-right"><p class="med">+</p></div>
 
       <div class="works-sharp">
-        <h3 class="work-carousel-title">WORKS<br>001</h3>
+        <h3 class="work-carousel-title">WORKS<br><span id="work-number"><%= first_work.number %></span></h3>
         <p class="work-carousel-client sml">
-          11010101001011110010<br><br>CLIENT 20233554448<br>5558 5848 54
+          11010101001011110010<br><br>
+          <span id="work-client"><%= first_work.client %></span><br>
+          <span id="work-title"><%= first_work.title %></span>
         </p>
       </div>
     </div>
@@ -23,28 +38,32 @@
   <ul class="work-list">
     <% @works.each do |work| %>
       <li class="work-list-item">
-        <%= link_to work_path(work.slug) do %>
           <div class="work-case">
             <div class="work-reference">
               <div class="work-name">
-                <h3>WORKS <%=work.number%></h3>
+                <%= link_to work_path(work.slug) do %>
+                  <h3 class="work-title roulette-anim">WORKS <%=work.number%></h3>
+                <% end %>
               </div>
               <div class="work-client">
-                <p class="sml">11010101001011110010</p><br><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
+                <%= link_to work_path(work.slug) do %>
+                  <p class="sml">11010101001011110010</p><br><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
+                <% end %>
               </div>
             </div>
             <div class="work-description">
               <p class="sml"><%=work.description%></p>
             </div>
             <div class="work-image">
-              <div class="corner-symbol top-left"><p class="med">+</p></div>
-              <div class="corner-symbol top-right"><p class="med">+</p></div>
-              <div class="corner-symbol bottom-left"><p class="med">+</p></div>
-              <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-              <%= image_tag url_for(work.images.first), id: "main-image" if work.images.attached? %>
+              <%= link_to work_path(work.slug) do %>
+                <div class="corner-symbol top-left"><p class="med">+</p></div>
+                <div class="corner-symbol top-right"><p class="med">+</p></div>
+                <div class="corner-symbol bottom-left"><p class="med">+</p></div>
+                <div class="corner-symbol bottom-right"><p class="med">+</p></div>
+                <%= image_tag url_for(work.images.first), class: "work-main-image" if work.images.attached? %>
+              <% end %>
             </div>
           </div>
-        <% end %>
       </li>
     <% end %>
   </ul>
