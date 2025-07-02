@@ -1,3 +1,4 @@
+<% content_for :page_theme, "theme-dark" %>
 <div class="work-wrapper">
   <% works_js = @works.map do |work|
     {
@@ -47,7 +48,7 @@
               </div>
               <div class="work-client">
                 <%= link_to work_path(work.slug) do %>
-                  <p class="sml">11010101001011110010</p><br><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
+                  <p class="sml">11010101001011110010</p><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
                 <% end %>
               </div>
             </div>

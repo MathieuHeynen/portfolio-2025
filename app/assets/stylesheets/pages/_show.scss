@@ -161,46 +161,22 @@
 
     .show-thumbnails {
       display: grid;
-      grid-template-columns: repeat(2, 7.5rem); // ~120px si 1rem = 16px
+      grid-template-columns: repeat(2, 7.5rem);
       gap: 1rem;
       justify-content: start;
 
-      img {
+      .image-miniature {
         width: 100%;
         height: auto;
         aspect-ratio: 4 / 3;
         object-fit: cover;
         cursor: pointer;
         transition: border 0.3s ease;
-
-        &.active {
-          border: 1px solid $gray;
-          position: relative;
-
-          &::after {
-            content: "+";
-            position: absolute;
-            top: 0.2rem;
-            right: 0.3rem;
-            font-size: 1rem;
-            color: $gray;
-          }
-        }
-      }
-
-      .image-miniature {
-        aspect-ratio: 4 / 3;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; // si c'est une image, pour qu'elle remplisse bien
-        align-content: center;
-        cursor: pointer;
         border: 1px solid transparent;
-        transition: border 0.3s ease;
         margin: 0;
 
         &.active {
-          border: 1px solid $gray;
+          border: 1px solid $light-gray;
           position: relative;
 
           &::after {
@@ -213,6 +189,22 @@
           }
         }
       }
+    }
+  }
+}
+
+body.theme-dark {
+  .show-container {
+    background-color: $gray;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a {
+      color: $light-gray;
     }
   }
 }

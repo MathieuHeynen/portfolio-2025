@@ -73,4 +73,13 @@
   &:hover .btn-text {
     background-position-x: 0%;
   }
+
+  a {
+    font-weight: 1000;
+    transition: ease;
+  }
+
+  #btn--to-contact {
+    font-size: $font-size-sm;
+  }
 }

@@ -8,6 +8,7 @@
     100vh - var(--header-height)
   ); /* prend toute la hauteur restante de l'écran */
   overflow: hidden; /* pour éviter tout débordement */
+  border-bottom: solid $gray 1px;
 
   .hello-presentation {
     grid-column: 1 / span 6; /* 6 premières colonnes */

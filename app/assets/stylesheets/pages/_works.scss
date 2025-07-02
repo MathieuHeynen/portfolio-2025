@@ -51,6 +51,7 @@
   grid-template-columns: repeat(8, 1fr);
   column-gap: 1.56rem;
   border-top: solid $gray 1px;
+  margin-bottom: 3.125rem;
 
   .work-reference {
     display: flex;
@@ -167,4 +168,41 @@
   display: block;
   transition: transform 0.34s cubic-bezier(0.7, 0, 0.5, 1);
   will-change: transform;
+}
+
+.work-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* occupe 100% sans déformation */
+  object-position: center center; /* centre l’image */
+  display: block;
+}
+
+body.theme-dark {
+  .work-wrapper {
+    background-color: $gray;
+
+    .work-case {
+      border-top: solid $light-gray 1px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a {
+      color: $light-gray;
+    }
+
+    .work-carousel-client,
+    .work-carousel-title,
+    .corner-symbol {
+      color: $gray;
+      p {
+        color: $gray;
+      }
+    }
+  }
 }

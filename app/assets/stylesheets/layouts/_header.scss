@@ -1,5 +1,9 @@
+#header {
+  padding: 3.125rem;
+}
+
 .header-container {
-  margin: 3.125rem;
+  // margin: 3.125rem;
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -177,4 +181,32 @@
   display: block;
   transition: transform 0.34s cubic-bezier(0.7, 0, 0.5, 1);
   will-change: transform;
+}
+
+body.theme-dark {
+  #header {
+    background-color: $gray;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a {
+      color: $light-gray;
+    }
+
+    .navbar {
+      border: solid $light-gray 1px;
+    }
+
+    .navbar-button--project {
+      color: $light-gray;
+    }
+
+    .highlight {
+      background-color: $light-gray;
+    }
+  }
 }

@@ -73,6 +73,13 @@
   }
 }
 
+#btn--footer-to-contact {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-max;
+  padding-bottom: 1rem;
+  margin: 0;
+}
+
 .roulette-switch {
   display: inline-block;
   position: relative;
@@ -122,4 +129,20 @@
 .roulette-switch.is-touched .switch-text {
   transform: translateY(0);
   opacity: 1;
+}
+
+body.theme-light {
+  .footer-container {
+    background-color: $gray;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a {
+      color: $light-gray;
+    }
+  }
 }

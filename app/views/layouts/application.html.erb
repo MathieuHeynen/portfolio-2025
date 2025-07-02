@@ -14,12 +14,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= content_for?(:page_theme) ? yield(:page_theme) : '' %>">
     <div id="header" class="header">
       <div class="header-container">
         <%= link_to root_path do %>
           <div class="logo-header">
-            <%= image_tag "mascotte.png", alt: "HEY!" %>
+            <% mascotte_image = (content_for?(:page_theme) && yield(:page_theme) == "theme-dark") ? "mascotte-dark.png" : "mascotte.png" %>
+            <%= image_tag mascotte_image, alt: "HEY!" %>
             <h5 class="logo-text roulette-name roulette-anim" id="logo-text">MATHIEU HEYNEN</h5>
           </div>
         <% end %>
@@ -67,7 +68,7 @@
         </div>
           <div class="contact-footer">
             <div class="mail-footer">
-              <h5>contact.heynen@gmail.com</h5>
+              <a href="mailto:contact.heynen@gmail.com" id="btn--footer-to-contact">contact.heynen@gmail.com</a>
             </div>
             <div class="social-footer">
               <div class="social-links">

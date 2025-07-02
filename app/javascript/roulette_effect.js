@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Sélectionne TOUTES les zones à animer
+function initRouletteAnim() {
   document.querySelectorAll(".roulette-anim").forEach((el) => {
     // Si déjà préparé, on ne le refait pas (pour éviter bugs si AJAX)
     if (el.dataset.rouletteReady) return;
@@ -52,4 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, rollers.length * 44 + 700);
     });
   });
-});
+}
+
+document.addEventListener("turbo:load", initRouletteAnim);
+document.addEventListener("DOMContentLoaded", initRouletteAnim);
