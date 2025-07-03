@@ -1,17 +1,12 @@
 <% content_for :page_theme, "theme-dark" %>
 <div class="show-container">
   <div class="show-item">
-    <div class="show-title">
-      <h1>WORK <%= @work.number %></h1>
-      <div class="show-title--informations">
-        <div class="show-client">
-          <p class="sml">11010101001011110010</p><br>
-          <p class="sml-bold"><%= @work.client %></p>
-          <p class="sml"><%= @work.title %></p>
-        </div>
-        <div class="show-description">
-          <p class="med"><%= @work.description %></p>
-        </div>
+    <div class="show-title-wrapper">
+      <div class="show-title">
+        <h1>WORK<%= @work.number %></h1>
+      </div>
+      <div class="show-description">
+        <p class="med"><%= @work.description %></p>
       </div>
     </div>
     <div class="show-content">
@@ -23,19 +18,26 @@
         <%= image_tag url_for(@work.images.first), id: "main-image" if @work.images.attached? %>
       </div>
       <div class="show-sidebar">
-        <div class="show-buttons">
-          <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
-          <div class="show-nav">
-            <% if @previous_work %>
-              <%= link_to 'Previous<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
-            <% else %>
-              <div class="btn-placeholder"></div>
-            <% end %>
-            <% if @next_work %>
-              <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
-            <% else %>
-              <div class="btn-placeholder"></div>
-            <% end %>
+        <div class="show--client-buttons-wrapper">
+          <div class="show-client">
+            <p class="sml">11010101001011110010</p><br>
+            <p class="sml-bold"><%= @work.client %></p>
+            <p class="sml"><%= @work.title %></p>
+          </div>
+          <div class="show-buttons">
+            <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
+            <div class="show-nav">
+              <% if @previous_work %>
+                <%= link_to 'Previous<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
+              <% else %>
+                <div class="btn-placeholder">Previous<br>Work</div>
+              <% end %>
+              <% if @next_work %>
+                <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
+              <% else %>
+                <div class="btn-placeholder">Next<br>Work</div>
+              <% end %>
+            </div>
           </div>
         </div>
         <div class="show-thumbnails" data-controller="image">

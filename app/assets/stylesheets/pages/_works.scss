@@ -109,44 +109,6 @@
   }
 }
 
-.corner-symbol {
-  //font
-  text-align: center;
-  font-family: "Roboto Flex";
-  font-size: 1.5em;
-  font-style: normal;
-  font-weight: 100;
-  line-height: normal;
-  text-transform: uppercase;
-  //position
-  position: absolute;
-  display: flex;
-  width: 1.56rem;
-  height: 1.56rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.top-left {
-  top: 0;
-  left: 0;
-}
-
-.top-right {
-  top: 0;
-  right: 0;
-}
-
-.bottom-left {
-  bottom: 0;
-  left: 0;
-}
-
-.bottom-right {
-  bottom: 0;
-  right: 0;
-}
-
 .work-list {
   margin-inline: 3.125rem;
   padding-left: 0;
@@ -154,6 +116,7 @@
   li {
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 3.125rem;
   }
 }
 

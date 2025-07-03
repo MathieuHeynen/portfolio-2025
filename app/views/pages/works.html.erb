@@ -25,7 +25,7 @@
       <div class="corner-symbol bottom-right"><p class="med">+</p></div>
 
       <div class="works-sharp">
-        <h3 class="work-carousel-title">WORKS<br><span id="work-number"><%= first_work.number %></span></h3>
+        <h3 class="work-carousel-title">WORKS<span id="work-number"><%= first_work.number %></span></h3>
         <p class="work-carousel-client sml">
           11010101001011110010<br><br>
           <span id="work-client"><%= first_work.client %></span><br>
@@ -43,7 +43,7 @@
             <div class="work-reference">
               <div class="work-name">
                 <%= link_to work_path(work.slug) do %>
-                  <h3 class="work-title roulette-anim">WORKS <%=work.number%></h3>
+                  <h3 class="work-title roulette-anim">WORKS<%=work.number%></h3>
                 <% end %>
               </div>
               <div class="work-client">

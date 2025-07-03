@@ -25,7 +25,6 @@
 
 .back-to-top {
   height: 4rem;
-  align-content: center;
 
   p {
     font-weight: 800;
@@ -73,10 +72,13 @@
   }
 }
 
+.mail-footer {
+  padding-bottom: 1rem;
+}
+
 #btn--footer-to-contact {
   font-size: $font-size-xs;
   font-weight: $font-weight-max;
-  padding-bottom: 1rem;
   margin: 0;
 }
 

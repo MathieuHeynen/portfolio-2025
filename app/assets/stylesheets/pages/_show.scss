@@ -18,29 +18,28 @@
   min-height: 0;
 }
 
-.show-title {
+.show-title-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 10rem;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 
-  h1 {
-    line-height: 0.75;
+  .show-title {
+    width: fit-content;
+
+    h1 {
+      line-height: 0.77;
+    }
   }
 
-  .show-title--informations {
-    display: flex;
-    flex-direction: row;
+  .show-client {
+    margin-left: 10rem;
+    text-align: left;
+  }
 
-    .show-description {
-      p {
-        padding-left: 10rem;
-        text-align: right;
-      }
-    }
-
-    .show-client {
-      text-align: left;
+  .show-description {
+    margin-left: 4rem;
+    p {
+      text-align: right;
     }
   }
 }
@@ -49,9 +48,13 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  margin-top: 3rem;
 
   #show-buttons--back {
-    align-self: center;
+    margin-bottom: 0;
+    border: solid 1px $light-gray;
+    width: 100%;
+    justify-content: center;
   }
 
   .show-nav {
@@ -76,6 +79,7 @@
     .btn-placeholder {
       min-width: 1rem;
       visibility: hidden;
+      opacity: 0.15;
     }
   }
 }
@@ -91,7 +95,7 @@
   }
 
   .show-media {
-    border: solid $gray 1px;
+    border: solid $light-gray 1px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -109,51 +113,13 @@
     h3 {
       justify-self: center;
     }
-
-    .corner-symbol {
-      //font
-      text-align: center;
-      font-family: "Roboto Flex";
-      font-size: 1.5em;
-      font-style: normal;
-      font-weight: 100;
-      line-height: normal;
-      text-transform: uppercase;
-      //position
-      position: absolute;
-      display: flex;
-      width: 1.56rem;
-      height: 1.56rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .top-left {
-      top: 0;
-      left: 0;
-    }
-
-    .top-right {
-      top: 0;
-      right: 0;
-    }
-
-    .bottom-left {
-      bottom: 0;
-      left: 0;
-    }
-
-    .bottom-right {
-      bottom: 0;
-      right: 0;
-    }
   }
 
   .show-sidebar {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
+    margin-right: 4rem;
     height: 100%;
     justify-content: space-between;
     margin-top: 0;
@@ -174,9 +140,10 @@
         transition: border 0.3s ease;
         border: 1px solid transparent;
         margin: 0;
+        border: 1px solid $light-gray;
 
         &.active {
-          border: 1px solid $light-gray;
+          border: 3px solid $light-gray;
           position: relative;
 
           &::after {
@@ -185,7 +152,7 @@
             top: 0.2rem;
             right: 0.3rem;
             font-size: 1rem;
-            color: $gray;
+            color: $light-gray;
           }
         }
       }
