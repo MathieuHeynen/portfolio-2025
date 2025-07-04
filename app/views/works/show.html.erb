@@ -25,31 +25,37 @@
             <p class="sml"><%= @work.title %></p>
           </div>
           <div class="show-buttons">
-            <%= link_to "BACK TO ALL WORKS", works_path, class: "btn btn--secondary", id: "show-buttons--back" %>
+            <div class="btn btn--secondary btn-clickable" id="show-buttons--back">
+              <%= link_to "BACK TO ALL WORKS", works_path,
+                    class: "btn-text",
+                    data: { text: "BACK TO ALL WORKS" } %>
+            </div>
             <div class="show-nav">
               <% if @previous_work %>
-                <%= link_to 'Previous<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
+                <%= link_to 'Prev.<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
               <% else %>
-                <div class="btn-placeholder">Previous<br>Work</div>
+                <div class="btn-placeholder"></div>
               <% end %>
               <% if @next_work %>
                 <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
               <% else %>
-                <div class="btn-placeholder">Next<br>Work</div>
+                <div class="btn-placeholder"></div>
               <% end %>
             </div>
           </div>
         </div>
         <div class="show-thumbnails" data-controller="image">
           <% @work.images.each_with_index do |image, index| %>
-            <%= image_tag image.variant(resize_to_limit: [400, 300]),
-            class: "image-miniature#{' active' if index == 0}",
-            data: {
-              image_target: "thumbnail",
-              action: "click->image#switch",
-              url: url_for(image.variant(resize_to_limit: [1200, 800]))
-            } %>
+            <div
+              class="image-miniature-wrapper<%= ' active' if index == 0 %>"
+              data-image-target="thumbnail"
+              data-action="click->image#switch"
+              data-url="<%= url_for(image.variant(resize_to_limit: [1200, 800])) %>"
+            >
+              <%= image_tag image.variant(resize_to_limit: [400, 300]), class: "image-miniature" %>
+            </div>
           <% end %>
+        </div>
         </div>
       </div>
     </div>

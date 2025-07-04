@@ -1,5 +1,12 @@
 .corner-symbol {
   margin: 0.3rem;
+  position: absolute;
+  display: flex;
+  width: 1.56rem;
+  height: 1.56rem;
+  justify-content: center;
+  align-items: center;
+
   p {
     //font
     font-size: $font-size-sm;
@@ -8,12 +15,6 @@
     line-height: normal;
     text-transform: uppercase;
     //position
-    position: absolute;
-    display: flex;
-    width: 1.56rem;
-    height: 1.56rem;
-    justify-content: center;
-    align-items: center;
   }
 
   &.top-left {
