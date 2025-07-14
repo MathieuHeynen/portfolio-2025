@@ -25,9 +25,9 @@
       <div class="corner-symbol bottom-right"><p class="med">+</p></div>
 
       <div class="works-sharp">
-        <h3 class="work-carousel-title">WORKS<span id="work-number"><%= first_work.number %></span></h3>
+        <h3 class="work-carousel-title">WORKS<br class="go-line"><span id="work-number"><%= first_work.number %></span></h3>
         <p class="work-carousel-client sml">
-          11010101001011110010<br><br>
+          <%= to_binary_string(first_work.client) %><br><br>
           <span id="work-client"><%= first_work.client %></span><br>
           <span id="work-title"><%= first_work.title %></span>
         </p>
@@ -48,7 +48,7 @@
               </div>
               <div class="work-client">
                 <%= link_to work_path(work.slug) do %>
-                  <p class="sml">11010101001011110010</p><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
+                  <p class="sml"><%= to_binary_string(work.client) %></p><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
                 <% end %>
               </div>
             </div>
