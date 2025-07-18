@@ -79,6 +79,9 @@
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
+    max-width: 18rem; // ou ce que tu veux, typiquement 15-20rem
+    min-width: 12rem; // pour que ça reste lisible
+    width: 100%;
 
     .show-buttons {
       display: flex;
@@ -97,18 +100,18 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-top: 2rem;
+        // margin-top: 2rem;
 
         .btn--previous {
           border: none;
-          margin: 0;
+          margin-right: 1rem;
           padding: 0;
         }
 
         .btn--next {
           text-align: right;
           border: none;
-          margin: 0;
+          margin-left: 1rem;
           padding: 0;
         }
 
@@ -127,7 +130,7 @@
 
     .show-thumbnails {
       display: grid;
-      grid-template-columns: repeat(2, 7.5rem);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       justify-content: start;
 

@@ -25,17 +25,17 @@
             <p class="sml"><%= @work.title %></p>
           </div>
           <div class="show-buttons">
-            <div class="btn btn--secondary btn-clickable" id="show-buttons--back">
-              <%= link_to "BACK TO ALL WORKS", works_path,
-                    class: "btn-text",
-                    data: { text: "BACK TO ALL WORKS" } %>
-            </div>
             <div class="show-nav">
               <% if @previous_work %>
                 <%= link_to 'Prev.<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
               <% else %>
                 <div class="btn-placeholder"></div>
               <% end %>
+              <div class="btn btn--secondary btn-clickable" id="show-buttons--back">
+                <%= link_to "BACK TO ALL WORKS", works_path,
+                      class: "btn-text",
+                      data: { text: "BACK TO ALL WORKS" } %>
+              </div>
               <% if @next_work %>
                 <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
               <% else %>
