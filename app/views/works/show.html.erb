@@ -20,16 +20,21 @@
       <div class="show-sidebar">
         <div class="show--client-buttons-wrapper">
           <div class="show-client">
-            <p class="sml"><%= to_binary_string(@work.title) %></p><br>
-            <p class="sml-bold"><%= @work.client %></p>
-            <p class="sml"><%= @work.title %></p>
+            <p class="med-bold"><%= @work.client %></p>
+            <p class="med"><%= @work.title %></p><br class="sml-screen">
+            <p class="sml"><%= to_binary_string(@work.title) %></p>
+          </div>
+          <!-- Image principale (seulement visible en mobile) -->
+          <div class="main-image-responsive">
+            <%= image_tag url_for(@work.images.first), id: "main-image-responsive", class: "main-image-responsive-img" if @work.images.attached? %>
+          </div>
+          <div class="show-description--responsive">
+            <p class="med"><%= @work.description %></p>
           </div>
           <div class="show-buttons">
             <div class="show-nav">
               <% if @previous_work %>
-                <%= link_to 'Prev.<br>Work'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
-              <% else %>
-                <div class="btn-placeholder"></div>
+                <%= link_to '←'.html_safe, work_path(@previous_work.slug), class: "btn btn--secondary btn--previous" %>
               <% end %>
               <div class="btn btn--secondary btn-clickable" id="show-buttons--back">
                 <%= link_to "BACK TO ALL WORKS", works_path,
@@ -37,9 +42,7 @@
                       data: { text: "BACK TO ALL WORKS" } %>
               </div>
               <% if @next_work %>
-                <%= link_to 'Next<br>Work'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
-              <% else %>
-                <div class="btn-placeholder"></div>
+                <%= link_to '→'.html_safe, work_path(@next_work.slug), class: "btn btn--secondary btn--next" %>
               <% end %>
             </div>
           </div>
@@ -55,7 +58,6 @@
               <%= image_tag image.variant(resize_to_limit: [400, 300]), class: "image-miniature" %>
             </div>
           <% end %>
-        </div>
         </div>
       </div>
     </div>

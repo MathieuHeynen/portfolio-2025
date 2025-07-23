@@ -70,6 +70,10 @@
     }
   }
 
+  .show-description--responsive {
+    display: none;
+  }
+
   .show-sidebar {
     flex: 0 0 auto;
     display: flex;
@@ -94,6 +98,11 @@
         border: solid 1px $light-gray;
         width: 100%;
         justify-content: center;
+        padding: 0.5rem;
+
+        a {
+          font-size: $font-size-med;
+        }
       }
 
       .show-nav {
@@ -103,15 +112,21 @@
         // margin-top: 2rem;
 
         .btn--previous {
+          font-size: $font-size-xs;
+          place-self: center;
           border: none;
           margin-right: 1rem;
+          margin-bottom: 0;
           padding: 0;
         }
 
         .btn--next {
+          font-size: $font-size-xs;
+          place-self: center;
           text-align: right;
           border: none;
           margin-left: 1rem;
+          margin-bottom: 0;
           padding: 0;
         }
 
@@ -124,7 +139,7 @@
 
     .show-client {
       text-align: left;
-      border-bottom: solid 1px $light-gray;
+      //border-bottom: solid 1px $light-gray;
       padding-bottom: 2rem;
     }
 

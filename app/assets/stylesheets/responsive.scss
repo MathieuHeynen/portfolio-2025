@@ -221,29 +221,67 @@
     flex-direction: column;
     gap: 0;
     height: fit-content;
+
+    .main-image-responsive {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      .main-image-responsive-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+        border: 1px solid $light-gray;
+      }
+    }
+
+    .show-sidebar {
+      display: flex;
+      flex-direction: column;
+      margin-right: 0rem !important;
+      max-width: none;
+      min-width: none;
+
+      .show-description--responsive {
+        margin-top: 4rem;
+        display: block;
+        text-align: center;
+      }
+    }
   }
 
   .show-item {
     margin-inline: 1.4rem;
     margin-top: 2.8rem;
     margin-bottom: 2.8rem;
-  }
 
-  .show-title {
-    h1 {
-      margin-bottom: 3rem;
-      font-size: $font-size-lg;
+    .show-title-wrapper {
+      flex-direction: column;
+      margin-bottom: 0rem;
+
+      .show-title {
+        align-self: center;
+        h1 {
+          margin-bottom: 3rem;
+          font-size: $font-size-lg;
+        }
+      }
     }
   }
 
   .show-buttons {
-    #show-buttons--back {
-      margin: 1.4rem;
-    }
-
     .show-nav {
       margin-top: 0 !important;
       margin-bottom: 1.4rem;
+
+      .btn--previous {
+        padding-right: 1.8rem;
+      }
+
+      #show-buttons--back {
+        margin-inline: 0;
+      }
     }
   }
 
@@ -254,9 +292,17 @@
   .show-client {
     margin-bottom: 2rem;
     text-align: right !important;
+    justify-items: center;
+    padding-bottom: 0 !important;
+
+    .sml,
+    .sml-screen {
+      display: none;
+    }
   }
 
   .show-description {
+    display: none;
     p {
       text-align: justify !important;
       padding-left: 0rem !important;
@@ -265,20 +311,40 @@
   }
 
   .show-media {
-    display: none;
-    aspect-ratio: 4 / 3;
-    flex: none !important;
-  }
-
-  .show-sidebar {
-    display: flex;
-    flex-direction: column;
-    margin-right: 0rem !important;
+    display: none !important;
   }
 
   .show-thumbnails {
     display: flex !important;
     flex-direction: column;
+    gap: 1rem;
+
+    .image-miniature-wrapper {
+      pointer-events: none;
+      width: 100%;
+      aspect-ratio: 4/3;
+      margin: 0 auto;
+
+      .image-miniature {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border: 1px solid $light-gray;
+        display: block;
+      }
+
+      &.active {
+        .image-miniature {
+          border: 1px solid $light-gray !important;
+        }
+      }
+
+      &::after {
+        display: none;
+        border: 1px solid $light-gray;
+      }
+    }
   }
 }
 
@@ -322,6 +388,7 @@
   .work-list {
     margin-inline: 1.4rem;
     padding-top: 2.8rem;
+    padding-top: 0;
     padding-bottom: 0.1rem;
     background-color: $gray;
 
