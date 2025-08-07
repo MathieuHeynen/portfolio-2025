@@ -11,10 +11,16 @@
   align-content: center;
 
   .skills-item {
+    display: flex;
+    flex-direction: row;
     margin: 0;
-    padding-right: 0.9rem;
+    // padding-right: 0.9rem;
     flex-shrink: 0;
     align-content: end;
+
+    h4 {
+      padding-right: 0.9rem;
+    }
   }
 }
 

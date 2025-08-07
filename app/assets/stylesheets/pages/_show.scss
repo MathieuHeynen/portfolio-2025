@@ -16,6 +16,10 @@
   overflow: hidden;
   position: relative;
   min-height: 0;
+
+  .main-image-responsive {
+    display: none;
+  }
 }
 
 .show-title-wrapper {
@@ -115,7 +119,7 @@
           font-size: $font-size-xs;
           place-self: center;
           border: none;
-          margin-right: 1rem;
+          margin-right: 2rem;
           margin-bottom: 0;
           padding: 0;
         }
@@ -125,7 +129,7 @@
           place-self: center;
           text-align: right;
           border: none;
-          margin-left: 1rem;
+          margin-left: 2rem;
           margin-bottom: 0;
           padding: 0;
         }
@@ -141,6 +145,7 @@
       text-align: left;
       //border-bottom: solid 1px $light-gray;
       padding-bottom: 2rem;
+      overflow: hidden;
     }
 
     .show-thumbnails {
