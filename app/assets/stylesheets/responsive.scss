@@ -127,13 +127,63 @@
   .hello-presentation,
   .contact-presentation {
     padding-inline: 0;
-    justify-self: center;
+    // justify-self: center;
   }
 }
 
-@media (max-width: 912px) and (min-width: 480px) {
+@media (max-width: 912px) and (min-width: 481px) {
   h1 {
     font-size: $font-size-xlg;
+  }
+
+  .container-hello {
+    flex-direction: column;
+
+    .hello-presentation {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 50%;
+      align-self: baseline;
+
+      .hello-badge {
+        margin-bottom: 1.4rem;
+        padding: 0;
+        align-self: center;
+        background-color: $gray;
+
+        .btn-text {
+          margin-inline: 1.3rem;
+          -webkit-text-fill-color: $light-gray;
+          line-height: 3;
+        }
+
+        #btn-hey {
+          font-size: $font-size-xs;
+        }
+      }
+
+      .hello-location {
+        margin-top: 1.4rem;
+        display: inline-block;
+        font-size: medium;
+      }
+    }
+
+    .hello-photo {
+      justify-content: center;
+      grid-column: 1 / -1;
+      justify-self: center;
+      overflow: hidden;
+
+      .parallax-image {
+        max-width: none;
+        max-height: none;
+        height: auto;
+        width: 120%;
+      }
+    }
   }
 }
 
@@ -359,6 +409,29 @@
 // ===================================
 // 5. Works Page
 // ===================================
+@media (max-width: 912px) and (min-width: 481px) {
+  .go-line {
+    display: block !important;
+  }
+
+  .work-case {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0;
+
+    .work-description {
+      padding-left: 15%;
+      padding-right: 5%;
+      width: 200%;
+    }
+
+    .work-image {
+      aspect-ratio: 4 / 3;
+      width: 200%;
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .work-intro {
     margin-bottom: 4.2rem;
@@ -580,7 +653,7 @@
 // 8. Dark Theme
 // ===================================
 
-@media (max-width: 480px) {
+@media (max-width: 912px) and (min-width: 481px) {
   body.theme-dark {
     background-color: $gray;
 

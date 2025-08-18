@@ -22,6 +22,10 @@
   background-size: cover;
 }
 
+.go-line {
+  display: none;
+}
+
 .works-sharp {
   display: flex;
   flex-direction: column;
@@ -32,10 +36,6 @@
   position: relative;
   overflow: hidden; /* pour éviter tout débordement */
   height: -webkit-fill-available;
-
-  .go-line {
-    display: none;
-  }
 
   .work-carousel-title {
     padding-left: 0.625rem;
