@@ -21,6 +21,23 @@
 // ===================================
 // 2. Header / Navbar
 // ===================================
+@media (max-width: 912px) and (min-width: 481px) {
+  .navbar.open {
+    padding-top: 15rem;
+    position: fixed;
+    border: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: flex-start;
+    flex-direction: column;
+    display: none;
+    z-index: 999;
+    padding-inline: 6.4rem;
+  }
+}
+
 @media (max-width: 912px) {
   .logo-text {
     display: none;
@@ -268,8 +285,256 @@
 }
 
 // ===================================
-// 4. Show Page
+// 4. Works Page
 // ===================================
+
+@media (max-width: 912px) and (min-width: 481px) {
+  .go-line {
+    display: block !important;
+  }
+
+  .work-case {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0;
+
+    .work-description {
+      padding-left: 15%;
+      padding-right: 5%;
+      width: 200%;
+    }
+
+    .work-image {
+      aspect-ratio: 4 / 3;
+      width: 200%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .work-intro {
+    margin-bottom: 4.2rem;
+
+    .works-blur {
+      border: 1px solid $light-gray;
+      margin: 1.4rem;
+      // padding-top: 1.4rem;
+      // padding-bottom: 1.4rem;
+
+      .works-sharp {
+        margin: 2.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .go-line {
+          display: block;
+        }
+
+        #work-number {
+          line-height: 0.9;
+        }
+
+        .work-carousel-title {
+          font-size: $font-size-md;
+        }
+        .work-carousel-client {
+          align-self: end;
+          font-size: $font-size-sml;
+        }
+      }
+    }
+  }
+
+  .work-list {
+    margin-inline: 1.4rem;
+    padding-top: 2.8rem;
+    padding-top: 0;
+    padding-bottom: 0.1rem;
+    background-color: $gray;
+
+    .work-list-clientLabel {
+      margin-bottom: 0.1rem;
+    }
+
+    li {
+      margin-bottom: 2.8rem;
+    }
+
+    .work-case {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+
+      .work-reference {
+        display: flex;
+        flex-direction: row;
+        margin: 0.7rem 0 0 0;
+
+        .work-client {
+          text-align: right;
+        }
+
+        .work-name h3 {
+          font-size: $font-size-xs;
+        }
+      }
+
+      .work-description {
+        display: none;
+        font-size: $font-size-med;
+      }
+
+      .work-image {
+        margin: 0;
+      }
+
+      .work-image h4 {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+// ===================================
+// 5. Show Page
+// ===================================
+@media (max-width: 912px) and (min-width: 481px) {
+  .show-container,
+  .show-title,
+  .show-content,
+  .show-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: fit-content;
+
+    .main-image-responsive {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      .main-image-responsive-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+        border: 1px solid $light-gray;
+      }
+    }
+
+    .show-sidebar {
+      display: flex;
+      flex-direction: column;
+      margin-right: 0rem !important;
+      max-width: none;
+      min-width: none;
+
+      .show-description--responsive {
+        margin-top: 4rem;
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
+  .show-item {
+    margin-inline: 3.125rem;
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+
+    .show-title-wrapper {
+      flex-direction: column;
+      margin-bottom: 0rem;
+
+      .show-title {
+        align-self: center;
+        h1 {
+          margin-bottom: 2rem;
+          font-size: $font-size-lg;
+        }
+      }
+    }
+  }
+
+  .show-buttons {
+    margin-bottom: 3rem;
+    .show-nav {
+      margin-top: 0 !important;
+      margin-bottom: 1.4rem;
+
+      .btn--previous {
+        padding-right: 1.8rem;
+      }
+
+      #show-buttons--back {
+        margin-inline: 0;
+      }
+    }
+  }
+
+  .show-title--informations {
+    flex-direction: column !important;
+  }
+
+  .show-client {
+    margin-bottom: 4rem;
+    text-align: right !important;
+    justify-items: center;
+    padding-bottom: 0 !important;
+
+    .sml,
+    .sml-screen {
+      display: none;
+    }
+  }
+
+  .show-description {
+    display: none;
+    p {
+      text-align: justify !important;
+      padding-left: 0rem !important;
+      font-size: $font-size-sml;
+    }
+  }
+
+  .show-media {
+    display: none !important;
+  }
+
+  .show-thumbnails {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem !important;
+
+    .image-miniature-wrapper {
+      pointer-events: none;
+      width: 100%;
+      aspect-ratio: 4/3;
+      margin: 0 auto;
+
+      .image-miniature {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border: 1px solid $light-gray;
+        display: block;
+      }
+
+      &.active {
+        .image-miniature {
+          border: 1px solid $light-gray !important;
+        }
+      }
+
+      &::after {
+        display: none;
+        border: 1px solid $light-gray;
+      }
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .show-container,
   .show-title,
@@ -407,119 +672,37 @@
 }
 
 // ===================================
-// 5. Works Page
-// ===================================
-@media (max-width: 912px) and (min-width: 481px) {
-  .go-line {
-    display: block !important;
-  }
-
-  .work-case {
-    display: flex;
-    flex-direction: row;
-    column-gap: 0;
-
-    .work-description {
-      padding-left: 15%;
-      padding-right: 5%;
-      width: 200%;
-    }
-
-    .work-image {
-      aspect-ratio: 4 / 3;
-      width: 200%;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .work-intro {
-    margin-bottom: 4.2rem;
-
-    .works-blur {
-      border: 1px solid $light-gray;
-      margin: 1.4rem;
-      // padding-top: 1.4rem;
-      // padding-bottom: 1.4rem;
-
-      .works-sharp {
-        margin: 2.8rem;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .go-line {
-          display: block;
-        }
-
-        #work-number {
-          line-height: 0.9;
-        }
-
-        .work-carousel-title {
-          font-size: $font-size-md;
-        }
-        .work-carousel-client {
-          align-self: end;
-          font-size: $font-size-sml;
-        }
-      }
-    }
-  }
-
-  .work-list {
-    margin-inline: 1.4rem;
-    padding-top: 2.8rem;
-    padding-top: 0;
-    padding-bottom: 0.1rem;
-    background-color: $gray;
-
-    .work-list-clientLabel {
-      margin-bottom: 0.1rem;
-    }
-
-    li {
-      margin-bottom: 2.8rem;
-    }
-
-    .work-case {
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-
-      .work-reference {
-        display: flex;
-        flex-direction: row;
-        margin: 0.7rem 0 0 0;
-
-        .work-client {
-          text-align: right;
-        }
-
-        .work-name h3 {
-          font-size: $font-size-xs;
-        }
-      }
-
-      .work-description {
-        display: none;
-        font-size: $font-size-med;
-      }
-
-      .work-image {
-        margin: 0;
-      }
-
-      .work-image h4 {
-        font-size: $font-size-base;
-      }
-    }
-  }
-}
-
-// ===================================
 // 6. Contact Page
 // ===================================
-@media (max-width: 480px) {
+@media (max-width: 912px) and (min-width: 481px) {
+  .btn-text {
+    margin-inline: 1.3rem;
+    -webkit-text-fill-color: $light-gray;
+    line-height: 3;
+  }
+
+  #btn--to-contact {
+    font-size: $font-size-xs;
+  }
+
+  .contact-presentation {
+    h1 {
+      font-size: $font-size-xlg;
+
+      .quotation {
+        font-size: $font-size-xlg;
+      }
+
+      .contact-hello {
+        font-size: $font-size-xlg;
+        margin-left: -0.5rem;
+        padding-right: 0.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 912px) {
   .contact-wrapper {
     flex-direction: column;
 
@@ -531,20 +714,6 @@
       text-align: center;
       height: 50%;
       align-self: baseline;
-
-      h1 {
-        font-size: $font-size-lg;
-
-        .quotation {
-          font-size: $font-size-lg;
-        }
-
-        .contact-hello {
-          font-size: $font-size-lg;
-          margin-left: -0.5rem;
-          padding-right: 0.6rem;
-        }
-      }
 
       span {
         line-height: 0;
@@ -579,7 +748,7 @@
         max-width: none;
         max-height: none;
         height: auto;
-        width: 140%;
+        width: 120%;
       }
     }
 
@@ -590,6 +759,22 @@
     .med-bold {
       padding-top: 1rem;
       font-size: $font-size-med;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: $font-size-lg;
+
+    .quotation {
+      font-size: $font-size-lg;
+    }
+
+    .contact-hello {
+      font-size: $font-size-lg;
+      margin-left: -0.5rem;
+      padding-right: 0.6rem;
     }
   }
 }
@@ -653,7 +838,7 @@
 // 8. Dark Theme
 // ===================================
 
-@media (max-width: 912px) and (min-width: 481px) {
+@media (max-width: 912px) {
   body.theme-dark {
     background-color: $gray;
 

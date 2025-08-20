@@ -207,5 +207,11 @@ body.theme-dark {
     .highlight {
       background-color: $light-gray;
     }
+
+    .burger {
+      span {
+        background: $light-gray;
+      }
+    }
   }
 }
