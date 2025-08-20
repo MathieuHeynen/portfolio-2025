@@ -68,11 +68,13 @@
   .social-links {
     display: flex;
     grid-column: 2 / -2;
-    justify-content: space-between;
+    justify-content: center;
 
     a {
       margin-top: 0.5rem;
+      margin-inline: 1rem;
       line-height: 0.9;
+      font-size: $font-size-sm;
     }
   }
 }

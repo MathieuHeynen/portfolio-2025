@@ -69,10 +69,15 @@
             </div>
             <div class="social-footer">
               <div class="social-links">
-                <%= link_to "LINKEDIN", "https://www.linkedin.com/in/mathieu-heynen/", class: "btn-clickable" %>
-                <%= link_to "BEHANCE", "https://www.behance.net/mathieuheynen", class: "btn-clickable" %>
-                <%= link_to "GITHUB", "https://github.com/MathieuHeynen", class: "btn-clickable" %>
-                <%= link_to "DRIBBBLE", "https://dribbble.com/easur", class: "btn-clickable" %>
+                <%= link_to "https://www.linkedin.com/in/mathieu-heynen/", class: "btn-clickable", target: "_blank" do %>
+                  <i class="fa-brands fa-linkedin"></i>
+                <% end %>
+                <%= link_to "https://www.behance.net/mathieuheynen", class: "btn-clickable", target: "_blank" do %>
+                  <i class="fa-brands fa-square-behance"></i>
+                <% end %>
+                <%= link_to "https://github.com/MathieuHeynen", class: "btn-clickable", target: "_blank" do %>
+                  <i class="fa-brands fa-square-github"></i>
+                <% end %>
               </div>
             </div>
           </div>

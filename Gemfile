@@ -69,7 +69,7 @@ gem "sassc-rails"
 gem "bootstrap", "~> 5.2"
 
 # Font Awesome
-gem "font-awesome-sass", "~> 6.1"
+gem "font-awesome-sass", "~> 6.5"
 
 # Simple Form
 gem "simple_form"

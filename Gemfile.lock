@@ -283,7 +283,7 @@ DEPENDENCIES
   bootstrap (~> 5.2)
   debug
   error_highlight (>= 0.4.0)
-  font-awesome-sass (~> 6.1)
+  font-awesome-sass (~> 6.5)
   hotwire-livereload
   image_processing (~> 1.2)
   importmap-rails

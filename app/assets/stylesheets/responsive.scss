@@ -801,10 +801,13 @@
       }
 
       .social-links {
-        gap: 1rem;
+        gap: 0.5rem;
+        justify-content: center;
 
         a {
-          font-size: $font-size-med;
+          margin-top: 0;
+          margin-inline: 1rem;
+          font-size: $font-size-xs;
         }
       }
 
@@ -812,7 +815,7 @@
         display: none;
       }
       .author {
-        margin-top: 0.8rem;
+        margin-top: 2rem;
         align-self: center;
         font-size: 5%;
         padding: 0;
