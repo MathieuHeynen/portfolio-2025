@@ -463,11 +463,23 @@
       margin-bottom: 1.4rem;
 
       .btn--previous {
-        padding-right: 1.8rem;
+        padding-right: 2.5rem !important;
+        font-size: $font-size-sm !important;
+      }
+
+      .btn--next {
+        padding-left: 2.5rem !important;
+        font-size: $font-size-sm !important;
       }
 
       #show-buttons--back {
         margin-inline: 0;
+
+        a,
+        .btn-text {
+          line-height: 1.5;
+          font-size: $font-size-base !important;
+        }
       }
     }
   }
