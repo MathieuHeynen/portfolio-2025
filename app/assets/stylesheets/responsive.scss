@@ -398,6 +398,12 @@
 // ===================================
 // 5. Show Page
 // ===================================
+@media (max-width: 1920px) and (min-width: 913px) {
+  .show-description {
+    padding-left: 15% !important;
+  }
+}
+
 @media (max-width: 912px) and (min-width: 481px) {
   .show-container,
   .show-title,

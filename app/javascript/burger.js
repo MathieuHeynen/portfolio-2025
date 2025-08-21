@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const burger = document.getElementById("burger-btn");
   const navbar = document.querySelector(".navbar");
   const overlay = document.getElementById("menu-overlay");

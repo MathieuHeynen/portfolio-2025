@@ -8,7 +8,16 @@ function setBackTopAnimation() {
 
   function onTouchStart() {
     btn.classList.add("is-touched");
+
+    // Si un timer existe déjà, on le réinitialise
+    clearTimeout(timeoutId);
+
+    // Après 2 secondes, on retire la classe pour revenir à la flèche
+    timeoutId = setTimeout(() => {
+      btn.classList.remove("is-touched");
+    }, 2000);
   }
+
   function onTouchEnd() {
     btn.classList.remove("is-touched");
   }

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const container = document.getElementById("work-intro");
   const works = JSON.parse(container.dataset.works);
 

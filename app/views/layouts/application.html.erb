@@ -11,6 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <div id="custom-cursor" aria-hidden="true"></div>
+
   <body class="<%= content_for?(:page_theme) ? yield(:page_theme) : '' %>">
     <div id="header" class="header">
       <div class="header-container">
