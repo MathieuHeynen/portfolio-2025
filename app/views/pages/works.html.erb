@@ -1,6 +1,7 @@
 <% content_for :page_theme, "theme-dark" %>
+
 <div class="work-wrapper">
-  <% works_js = @works.map do |work|
+  <% works_js = (@works || []).map do |work|
     {
       image: (url_for(work.images.first) if work.images.attached?),
       number: work.number,
@@ -9,64 +10,96 @@
       url: work_path(work.slug)
     }
   end %>
-  <div class="work-intro"
-    id="work-intro"
-    data-works="<%= works_js.to_json %>">
 
-    <% first_work = @works.first %>
-    <div
-    class="works-blur"
-    id="works-blur"
-    style="background-image: url('<%= url_for(first_work.images.first) if first_work.images.attached? %>');"
-    >
-      <div class="corner-symbol top-left"><p class="med">+</p></div>
-      <div class="corner-symbol top-right"><p class="med">+</p></div>
-      <div class="corner-symbol bottom-left"><p class="med">+</p></div>
-      <div class="corner-symbol bottom-right"><p class="med">+</p></div>
+  <div class="work-intro" id="work-intro" data-works="<%= works_js.to_json %>">
 
-      <div class="works-sharp">
-        <h1 class="work-carousel-title">WORKS<br class="go-line"><span id="work-number"><%= first_work.number %></span></h1>
-        <p class="work-carousel-client sml">
-          <%= to_binary_string(first_work.client) %><br><br>
-          <span id="work-client" class="bold"><%= first_work.client %></span><br>
-          <span id="work-title"><%= first_work.title %></span>
-        </p>
+    <% first_work = @works&.first %>
+
+    <% if first_work.present? %>
+      <% first_image_url =
+          if first_work.images.attached?
+            url_for(first_work.images.first)
+          else
+            nil
+          end %>
+
+      <div
+        class="works-blur"
+        id="works-blur"
+        style="<%= first_image_url ? "background-image: url('#{first_image_url}');" : "" %>">
+        <div class="corner-symbol top-left"><p class="med">+</p></div>
+        <div class="corner-symbol top-right"><p class="med">+</p></div>
+        <div class="corner-symbol bottom-left"><p class="med">+</p></div>
+        <div class="corner-symbol bottom-right"><p class="med">+</p></div>
+
+        <div class="works-sharp">
+          <h1 class="work-carousel-title">
+            WORKS<br class="go-line">
+            <span id="work-number"><%= first_work.number %></span>
+          </h1>
+          <p class="work-carousel-client sml">
+            <%= to_binary_string(first_work.client) %><br><br>
+            <span id="work-client" class="bold"><%= first_work.client %></span><br>
+            <span id="work-title"><%= first_work.title %></span>
+          </p>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <!-- Cas où il n’y a encore aucun Work en base -->
+      <div class="works-blur" id="works-blur">
+        <div class="works-sharp">
+          <h1 class="work-carousel-title">WORKS</h1>
+          <p class="work-carousel-client sml">
+            Portfolio coming soon.<br>
+            No projects have been added yet.
+          </p>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 
-  <ul class="work-list">
-    <% @works.each do |work| %>
-      <li class="work-list-item">
+  <% if @works.present? %>
+    <ul class="work-list">
+      <% @works.each do |work| %>
+        <li class="work-list-item">
           <div class="work-case">
             <div class="work-reference">
               <div class="work-name">
                 <%= link_to work_path(work.slug) do %>
-                  <h3 class="work-title roulette-anim">WORKS<br class="go-line"><%=work.number%></h3>
+                  <h3 class="work-title roulette-anim">
+                    WORKS<br class="go-line"><%= work.number %>
+                  </h3>
                 <% end %>
               </div>
               <div class="work-client">
                 <%= link_to work_path(work.slug) do %>
-                  <p class="sml"><%= to_binary_string(work.client) %></p><br><p class="sml-bold work-list-clientLabel"><%=work.client%></p><p class="sml"><%=work.title%></p>
+                  <p class="sml"><%= to_binary_string(work.client) %></p><br>
+                  <p class="sml-bold work-list-clientLabel"><%= work.client %></p>
+                  <p class="sml"><%= work.title %></p>
                 <% end %>
               </div>
             </div>
+
             <div class="work-description">
-              <p class="sml"><%=work.description%></p>
+              <p class="sml"><%= work.description %></p>
             </div>
+
             <div class="work-image">
               <%= link_to work_path(work.slug) do %>
                 <div class="corner-symbol top-left"><p class="med">+</p></div>
                 <div class="corner-symbol top-right"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-left"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-                <%= image_tag url_for(work.images.first), class: "work-main-image" if work.images.attached? %>
+                <% if work.images.attached? %>
+                  <%= image_tag url_for(work.images.first),
+                                class: "work-main-image" %>
+                <% end %>
               <% end %>
             </div>
           </div>
-      </li>
-    <% end %>
-  </ul>
-
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

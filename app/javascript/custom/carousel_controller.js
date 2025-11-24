@@ -1,6 +1,7 @@
 document.addEventListener("turbo:load", () => {
   const container = document.getElementById("work-intro");
-  const works = JSON.parse(container.dataset.works);
+  if (!container) return;
+  const works = JSON.parse(container.dataset.works || "[]");
 
   let index = 0;
   let currentUrl = works[0].url;
