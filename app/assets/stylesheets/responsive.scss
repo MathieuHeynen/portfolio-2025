@@ -309,9 +309,14 @@
       width: 200%;
     }
   }
+}
 
-  .work-carousel-title {
-    font-size: $font-size-lg;
+@media (max-width: 633px) and (min-width: 481px) {
+  .works-sharp {
+    margin: 2.8rem;
+    .work-carousel-title {
+      font-size: $font-size-lg;
+    }
   }
 }
 
