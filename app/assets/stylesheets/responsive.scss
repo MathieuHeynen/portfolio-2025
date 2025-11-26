@@ -140,7 +140,7 @@
 // ===================================
 // 3. Home Page
 // ===================================
-@media (min-width: 1024px) {
+@media (min-width: 1273px) {
   .hello-presentation,
   .contact-presentation {
     padding-inline: 0;
@@ -148,9 +148,35 @@
   }
 }
 
-@media (max-width: 912px) and (min-width: 481px) {
+@media (max-width: 1272px) and (min-width: 1034px) {
   h1 {
     font-size: $font-size-xlg;
+  }
+  .hello-presentation {
+    .hello-badge {
+      #btn-hey {
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}
+
+@media (max-width: 1033px) and (min-width: 913px) {
+  h1 {
+    font-size: $font-size-slg;
+  }
+  .hello-presentation {
+    .hello-badge {
+      #btn-hey {
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}
+
+@media (max-width: 912px) and (min-width: 481px) {
+  h1 {
+    font-size: $font-size-slg;
   }
 
   .container-hello {
@@ -195,7 +221,7 @@
       overflow: hidden;
 
       .parallax-image {
-        max-width: none;
+        max-width: 608.67px;
         max-height: none;
         height: auto;
         width: 120%;
