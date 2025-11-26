@@ -1,38 +1,69 @@
-document.addEventListener("turbo:load", () => {
-  const track = document.querySelector(".skills-track");
-  if (!track || track.dataset.animated) return;
+let bannerAnimationId = null;
+let resizeTimer = null;
 
-  // Marquer comme déjà animé pour éviter les doublons
-  track.dataset.animated = "true";
+function initSkillsBanner() {
+  const track = document.querySelector(".skills-track");
+  if (!track) return;
+
+  // Sauvegarder le HTML original une seule fois
+  if (!track.dataset.originalHtml) {
+    track.dataset.originalHtml = track.innerHTML;
+  } else {
+    // Le remettre pour repartir d'une base propre
+    track.innerHTML = track.dataset.originalHtml;
+  }
+
+  // Annuler une animation précédente si elle existe
+  if (bannerAnimationId) {
+    cancelAnimationFrame(bannerAnimationId);
+    bannerAnimationId = null;
+  }
 
   const originalItems = Array.from(track.children);
   const screenWidth = window.innerWidth;
 
-  // Dupliquer tant que ça ne rempli pas l'écran
+  // Dupliquer tant que ça ne remplit pas au moins ~2x l'écran
   while (track.scrollWidth < screenWidth * 2) {
     for (const item of originalItems) {
-      track.appendChild(item.cloneNode(true)); // Le paramètre true veut dire : "clone aussi tous les enfants"
+      track.appendChild(item.cloneNode(true));
     }
   }
 
-  // Mesurer la première série complète avant la duplication
-  let cycleWidth = 0;
-  for (let i = 0; i < originalItems.length; i++) {
-    cycleWidth += originalItems[i].getBoundingClientRect().width;
-  }
-
   let offset = 0;
-  const speed = 0.5;
+  const speed = 0.5; // px par frame environ
 
   const animate = () => {
     offset -= speed;
+
     if (Math.abs(offset) >= track.scrollWidth / 2) {
       offset = 0;
     }
 
     track.style.transform = `translateX(${offset}px)`;
-    requestAnimationFrame(animate);
+    bannerAnimationId = requestAnimationFrame(animate);
   };
 
+  // Reset de la transform
+  track.style.transform = "translateX(0)";
   animate();
-});
+}
+
+function bindBanner() {
+  initSkillsBanner();
+
+  // Éviter d'ajouter plusieurs listeners à chaque turbo:load
+  if (!window.__skillsBannerResizeBound) {
+    window.addEventListener(
+      "resize",
+      () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initSkillsBanner, 150);
+      },
+      { passive: true }
+    );
+    window.__skillsBannerResizeBound = true;
+  }
+}
+
+document.addEventListener("turbo:load", bindBanner);
+document.addEventListener("DOMContentLoaded", bindBanner);
