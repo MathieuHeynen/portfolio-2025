@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+puts "🔍 Pre-deploy checks..."
+
+errors = []
+
+# Check master key
+unless File.exist?('config/master.key')
+  errors << "❌ Master key missing"
+end
+
+# Check database config
+unless File.read('config/database.yml').include?('production:')
+  errors << "❌ Production database not configured"
+end
+
+# Check Gemfile
+gemfile = File.read('Gemfile')
+if gemfile.include?("gem 'sqlite3'") && !gemfile.include?('group :development')
+  errors << "⚠️  SQLite in production"
+end
+
+# Check storage config
+unless File.exist?('config/storage.yml')
+  errors << "❌ Storage config missing"
+end
+
+# Check build script
+unless File.exist?('bin/render-build.sh')
+  errors << "❌ Build script missing"
+end
+
+# Check if script is executable
+if File.exist?('bin/render-build.sh')
+  unless File.executable?('bin/render-build.sh')
+    errors << "❌ Build script not executable"
+  end
+end
+
+if errors.any?
+  puts "\n❌ Pre-deploy checks failed:"
+  errors.each { |e| puts "  #{e}" }
+  exit 1
+else
+  puts "✅ All checks passed!"
+end

@@ -1,21 +1,51 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  # Public routes
+  root "pages#home"
 
-  get "/works", to: "pages#works"
-  get "/contact", to: "pages#contact"
-  get "/works/:slug", to: "works#show", as: "work"
+  # Pages statiques
+  get "about", to: "pages#about"
+  get "contact", to: "pages#contact"
+  post "contact", to: "pages#create_contact"
 
-  # ➤ Montre les routes d'Active Storage
+  # Portfolio - CORRECTION ICI
+  get "/works", to: "pages#works"  # ✅ Liste des projets via PagesController
+  get "/works/:slug", to: "works#show", as: "work"  # ✅ Détail via WorksController
+  post "/works/:slug/track_view", to: "works#track_view", as: "track_work_view"  # Optionnel
+
+  # Redirections pour SEO
+  get "portfolio", to: redirect("/works")
+  get "projects/:slug", to: redirect("/works/%{slug}")
+
+  get "health", to: "health#show"
+  get "up", to: "health#show"  # Alias pour Render
+
+  # Admin (avec authentification HTTP Basic)
+  namespace :admin do
+    root "dashboard#index"
+    resources :works do
+      member do
+        patch :move_up
+        patch :move_down
+        patch :toggle_featured
+      end
+    end
+    resources :messages, only: [:index, :show, :destroy]
+    resources :analytics, only: [:index]
+  end
+
+  # API endpoints (si tu veux ajouter une API)
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :works, only: [:index, :show]
+      post "contact", to: "contacts#create"
+    end
+  end
+
   mount ActiveStorage::Engine => "/rails/active_storage"
 
-  direct :rails_blob do |blob|
-    route_for(:rails_service_blob, blob.signed_id, blob.filename)
-  end
+  # Health check pour monitoring
+  get "up" => "rails/health#show", as: :rails_health_check
 
-  direct :rails_blob_variant do |variant|
-    route_for(:rails_blob_representation, variant.blob.signed_id, variant.variation.key, variant.blob.filename)
-  end
-
-  # ➤ Définit l'URL de base pour les blobs (facultatif en local mais utile)
-  Rails.application.routes.default_url_options[:host] = "localhost:3000"
+  # Catch-all pour 404 personnalisé
+  match "*path", to: "pages#not_found", via: :all
 end

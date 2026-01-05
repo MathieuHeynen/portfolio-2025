@@ -1,0 +1,61 @@
+<div class="admin-header">
+  <h1>Dashboard</h1>
+  <p class="text-muted">Bienvenue <%= owner_name %> ! Voici un aperçu de ton portfolio.</p>
+</div>
+
+<!-- Statistiques -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value"><%= @stats[:total_works] %></div>
+    <div class="stat-label">Projets total</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value"><%= @stats[:featured_count] %></div>
+    <div class="stat-label">Projets en vedette</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value"><%= number_with_delimiter(@stats[:total_views]) %></div>
+    <div class="stat-label">Vues totales</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value"><%= @stats[:messages_count] %></div>
+    <div class="stat-label">Messages non lus</div>
+  </div>
+</div>
+
+<!-- Projets récents -->
+<div class="card">
+  <div class="card-header">
+    <h3>Projets récents</h3>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Projet</th>
+          <th>Client</th>
+          <th>Catégorie</th>
+          <th>Vues</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recent_works.each do |work| %>
+          <tr>
+            <td><%= work.title %></td>
+            <td><%= work.client %></td>
+            <td><span class="badge bg-primary"><%= work.category %></span></td>
+            <td><%= work.views_count %></td>
+            <td>
+              <%= link_to "Voir", work_path(work), target: "_blank", class: "btn btn-sm btn-outline-primary" %>
+              <%= link_to "Éditer", edit_admin_work_path(work), class: "btn btn-sm btn-outline-secondary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

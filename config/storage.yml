@@ -1,5 +1,23 @@
-# config/storage.yml
+# Configuration Active Storage
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
 
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+
+# Cloudinary pour production
+cloudinary:
+  service: Cloudinary
+  folder: <%= Rails.env %> # Sépare dev/staging/production
+
+# Configuration alternative si tu utilises le gem directement
+cloudinary_direct:
+  service: Cloudinary
+  cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'] %>
+  api_key: <%= ENV['CLOUDINARY_API_KEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
+  secure: true
+  cdn_subdomain: true

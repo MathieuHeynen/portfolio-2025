@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+puts "\n== Configuration de l'interface admin =="
+
+# Créer les dossiers
+FileUtils.mkdir_p('app/controllers/admin')
+FileUtils.mkdir_p('app/views/admin/dashboard')
+FileUtils.mkdir_p('app/views/admin/works')
+FileUtils.mkdir_p('app/views/layouts')
+
+# Créer le controller de base
+File.write('app/controllers/admin/base_controller.rb', <<~RUBY)
+  class Admin::BaseController < ApplicationController
+    before_action :authenticate_admin!
+    layout 'admin'
+
+    private
+
+    def authenticate_admin!
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+      end
+    end
+  end
+RUBY
+
+# Ajouter les routes admin
+routes_content = File.read('config/routes.rb')
+unless routes_content.include?('namespace :admin')
+  routes_content.gsub!('Rails.application.routes.draw do', <<~RUBY)
+    Rails.application.routes.draw do
+      namespace :admin do
+        root 'dashboard#index'
+        resources :works do
+          member do
+            patch :move_up
+            patch :move_down
+            patch :toggle_featured
+          end
+        end
+      end
+  RUBY
+  File.write('config/routes.rb', routes_content)
+end
+
+puts "✅ Interface admin configurée!"
+puts "\nPour terminer l'installation:"
+puts "1. Ajoute ADMIN_USERNAME et ADMIN_PASSWORD dans .env"
+puts "2. Lance: rails db:migrate"
+puts "3. Accède à /admin avec tes identifiants"

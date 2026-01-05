@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - <%= owner_name %></title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+      .admin-wrapper {
+        display: flex;
+        min-height: 100vh;
+      }
+      .admin-sidebar {
+        width: 250px;
+        background: #1a1a1a;
+        padding: 20px;
+      }
+      .admin-content {
+        flex: 1;
+        padding: 30px;
+        background: #f5f5f5;
+      }
+      .admin-nav a {
+        display: block;
+        color: white;
+        padding: 10px 15px;
+        margin: 5px 0;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+      .admin-nav a:hover,
+      .admin-nav a.active {
+        background: #333;
+      }
+      .admin-header {
+        background: white;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      .stat-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .stat-value {
+        font-size: 2em;
+        font-weight: bold;
+        color: #333;
+      }
+      .stat-label {
+        color: #666;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+
+  <body class="admin-body">
+    <div class="admin-wrapper">
+      <!-- Sidebar -->
+      <aside class="admin-sidebar">
+        <h3 style="color: white; margin-bottom: 30px;">
+          🔧 Admin Panel
+        </h3>
+
+        <nav class="admin-nav">
+          <%= link_to "📊 Dashboard", admin_root_path,
+              class: current_page?(admin_root_path) ? "active" : "" %>
+          <%= link_to "💼 Projets", admin_works_path,
+              class: controller_name == "works" ? "active" : "" %>
+          <%= link_to "📬 Messages", admin_messages_path,
+              class: controller_name == "messages" ? "active" : "" %>
+          <%= link_to "📈 Analytics", admin_analytics_path,
+              class: controller_name == "analytics" ? "active" : "" %>
+          <hr style="border-color: #333; margin: 20px 0;">
+          <%= link_to "🌐 Voir le site", root_path, target: "_blank" %>
+          <%= link_to "🚪 Déconnexion", "#", method: :delete %>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="admin-content">
+        <% if notice.present? %>
+          <div class="alert alert-success alert-dismissible fade show">
+            <%= notice %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <% end %>
+
+        <% if alert.present? %>
+          <div class="alert alert-danger alert-dismissible fade show">
+            <%= alert %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

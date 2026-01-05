@@ -1,0 +1,12 @@
+<div class="admin-header">
+  <h1>Nouveau Projet</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "Admin", admin_root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "Projets", admin_works_path %></li>
+      <li class="breadcrumb-item active">Nouveau</li>
+    </ol>
+  </nav>
+</div>
+
+<%= render 'form' %>

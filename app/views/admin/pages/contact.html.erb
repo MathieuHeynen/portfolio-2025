@@ -1,0 +1,90 @@
+<% content_for :page_theme, "theme-light" %>
+<% content_for :page_title, "Contact" %>
+
+<div class="contact-container">
+  <div class="contact-header">
+    <h1>Let's Work Together</h1>
+    <p class="lead">
+      Disponible pour des missions freelance Rails & React Native<br>
+      <%= owner_email %> • <%= portfolio_config[:owner][:location] %>
+    </p>
+  </div>
+
+  <div class="contact-form-wrapper">
+    <%= form_with url: contact_path, local: true, class: "contact-form" do |f| %>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :name, "Nom", class: "form-label" %>
+          <%= f.text_field :name, class: "form-control", required: true %>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <%= f.label :email, "Email", class: "form-label" %>
+          <%= f.email_field :email, class: "form-control", required: true %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :subject, "Sujet", class: "form-label" %>
+        <%= f.select :subject,
+            options_for_select([
+              ['Projet Web', 'web'],
+              ['Projet Mobile', 'mobile'],
+              ['Collaboration', 'collab'],
+              ['Autre', 'other']
+            ]),
+            { prompt: "Sélectionnez un sujet" },
+            class: "form-select", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :budget, "Budget approximatif", class: "form-label" %>
+        <%= f.select :budget,
+            options_for_select([
+              ['< 1.000€', 'small'],
+              ['1.000€ - 5.000€', 'medium'],
+              ['5.000€ - 10.000€', 'large'],
+              ['> 10.000€', 'enterprise'],
+              ['À discuter', 'discuss']
+            ]),
+            { prompt: "Sélectionnez une fourchette" },
+            class: "form-select" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :message, "Message", class: "form-label" %>
+        <%= f.text_area :message, class: "form-control", rows: 6,
+            placeholder: "Décrivez votre projet...", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :timeline, "Délai souhaité", class: "form-label" %>
+        <%= f.text_field :timeline, class: "form-control",
+            placeholder: "Ex: 2 mois, ASAP, Flexible..." %>
+      </div>
+
+      <%= f.submit "Envoyer le message", class: "btn btn-primary btn-lg w-100" %>
+    <% end %>
+  </div>
+
+  <div class="contact-alternatives">
+    <h3>Autres moyens de me contacter</h3>
+    <div class="social-links">
+      <% if has_social?(:linkedin) %>
+        <%= link_to social_link(:linkedin), target: "_blank", class: "social-link" do %>
+          <i class="fab fa-linkedin"></i> LinkedIn
+        <% end %>
+      <% end %>
+
+      <% if has_social?(:github) %>
+        <%= link_to social_link(:github), target: "_blank", class: "social-link" do %>
+          <i class="fab fa-github"></i> GitHub
+        <% end %>
+      <% end %>
+
+      <a href="mailto:<%= owner_email %>" class="social-link">
+        <i class="fas fa-envelope"></i> Email direct
+      </a>
+    </div>
+  </div>
+</div>

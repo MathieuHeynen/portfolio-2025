@@ -1,14 +1,5 @@
+# db/seeds.rb
 require "open-uri"
-
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 
 def attach_images_to_work(work, folder, count)
   count.times do |i|
@@ -19,39 +10,69 @@ def attach_images_to_work(work, folder, count)
       puts "📸 Attaching #{filename} to #{work.title}"
       file = File.open(filepath)
       work.images.attach(io: file, filename: filename)
+      file.close
     else
-      puts "❌ File not found: #{filepath}"
+      puts "⚠️ File not found: #{filepath} - Using placeholder"
+      # Image placeholder si le fichier n'existe pas
+      file = URI.open("https://via.placeholder.com/800x600/4ECDC4/ffffff?text=#{work.title}")
+      work.images.attach(io: file, filename: "placeholder_#{i+1}.jpg")
     end
   rescue => e
     puts "⚠️ Failed to attach #{filename}: #{e.message}"
   end
 end
 
-puts "📦 Seeding works and attaching images..."
+puts "🧹 Cleaning existing works..."
+Work.destroy_all
 
-nike = Work.create!(
+puts "📦 Seeding works..."
+
+izy_chef = Work.create!(
+  title: "IzyChef",
+  client: "Solution SaaS B2B",
+  description: "Application complète de gestion pour restaurants avec système de
+                commandes, gestion des stocks via API Solucious, et tableau de bord
+                analytics. Architecture Rails API + React Native.",
   number: "001",
-  client: "Nike",
-  title: "Affiche publicitaire Nike",
-  description: "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb."
+  category: "web",
+  status: "in_progress",
+  featured: true,
+  technologies: ["Ruby on Rails 7", "React Native", "PostgreSQL", "Redis",
+                 "Sidekiq", "API REST", "WebSockets"],
+  github_url: nil, # Privé
+  live_url: "https://izy-chef.com",
+  start_date: 3.months.ago,
+  end_date: nil,
+  meta_description: "Application SaaS de gestion complète pour restaurants - Rails & React Native",
+  keywords: ["restaurant management", "saas", "rails api", "react native"]
 )
-attach_images_to_work(nike, "nike", 3)
+
+locally = Work.create!(
+  number: "001",
+  client: "Le Wagon",
+  title: "Final work from the bootcamp @LeWagon",
+  description: "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it?",
+  slug: "locally-project"
+)
+attach_images_to_work(locally, "locally", 3)  # ✅ Utilise 'locally', pas 'nike'
 
 kenta = Work.create!(
   number: "002",
   client: "Kenta Merry",
   title: "Design de site web portfolio",
-  description: "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing."
+  description: "Well, the way they make shows is, they make one show. That show's called a pilot.",
+  slug: "kenta-portfolio"
 )
-attach_images_to_work(kenta, "kenta", 4)
+attach_images_to_work(kenta, "kenta", 4)  # ✅ OK
 
 kfe = Work.create!(
   number: "003",
   client: "K'fé",
   title: "Packaging de café bio",
-  description: "Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit."
+  description: "Now that there is the Tec-9, a crappy spray gun from South Miami.",
+  slug: "kfe-packaging"
 )
-attach_images_to_work(kfe, "kfe", 5)
+attach_images_to_work(kfe, "kfe", 5)  # ✅ OK
 
 puts "🌱 Seeding completed."
 
@@ -59,4 +80,4 @@ Work.all.each do |work|
   puts "🖼️ #{work.title} has #{work.images.count} image(s) attached"
 end
 
-puts "✅ Works seeded with images."
+puts "✅ #{Work.count} works seeded with images."

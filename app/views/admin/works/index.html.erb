@@ -1,0 +1,142 @@
+<div class="admin-header d-flex justify-content-between align-items-center">
+  <h1>Gestion des Projets</h1>
+  <%= link_to "+ Nouveau Projet", new_admin_work_path, class: "btn btn-primary" %>
+</div>
+
+<!-- Filtres -->
+<div class="card mb-4">
+  <div class="card-body">
+    <form class="row g-3">
+      <div class="col-md-3">
+        <select class="form-select" name="category">
+          <option value="">Toutes les catégories</option>
+          <option value="web">Web</option>
+          <option value="mobile">Mobile</option>
+          <option value="design">Design</option>
+          <option value="other">Autre</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select" name="status">
+          <option value="">Tous les statuts</option>
+          <option value="completed">Terminé</option>
+          <option value="in_progress">En cours</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select" name="featured">
+          <option value="">Tous</option>
+          <option value="true">En vedette</option>
+          <option value="false">Normal</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-secondary w-100">Filtrer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Liste des projets -->
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead>
+        <tr>
+          <th width="50">Ordre</th>
+          <th width="80">N°</th>
+          <th>Titre</th>
+          <th>Client</th>
+          <th>Catégorie</th>
+          <th>Statut</th>
+          <th width="80">Vedette</th>
+          <th width="100">Vues</th>
+          <th width="200">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="sortable-works">
+        <% @works.each do |work| %>
+          <tr data-work-id="<%= work.id %>">
+            <td>
+              <div class="btn-group-vertical btn-group-sm">
+                <%= button_to "↑", move_up_admin_work_path(work),
+                    method: :patch, class: "btn btn-outline-secondary btn-sm" %>
+                <%= button_to "↓", move_down_admin_work_path(work),
+                    method: :patch, class: "btn btn-outline-secondary btn-sm" %>
+              </div>
+            </td>
+            <td><code><%= work.number %></code></td>
+            <td>
+              <strong><%= work.title %></strong>
+              <% if work.images.attached? %>
+                <span class="text-muted">(📷 <%= work.images.count %>)</span>
+              <% end %>
+            </td>
+            <td><%= work.client %></td>
+            <td>
+              <span class="badge bg-<%= work.category == 'web' ? 'primary' : 'secondary' %>">
+                <%= work.category %>
+              </span>
+            </td>
+            <td>
+              <% if work.completed? %>
+                <span class="badge bg-success">Terminé</span>
+              <% else %>
+                <span class="badge bg-warning">En cours</span>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= button_to toggle_featured_admin_work_path(work),
+                  method: :patch, class: "btn btn-sm btn-link" do %>
+                <% if work.featured? %>
+                  ⭐
+                <% else %>
+                  ☆
+                <% end %>
+              <% end %>
+            </td>
+            <td><%= number_with_delimiter(work.views_count) %></td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <%= link_to "👁", work_path(work), target: "_blank",
+                    class: "btn btn-outline-primary", title: "Voir" %>
+                <%= link_to "✏️", edit_admin_work_path(work),
+                    class: "btn btn-outline-secondary", title: "Éditer" %>
+                <%= link_to "🗑", admin_work_path(work),
+                    method: :delete,
+                    data: { confirm: "Supprimer ce projet ?" },
+                    class: "btn btn-outline-danger", title: "Supprimer" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // Drag & Drop pour réorganiser (optionnel)
+  document.addEventListener('DOMContentLoaded', () => {
+    const tbody = document.getElementById('sortable-works');
+    if (tbody && typeof Sortable !== 'undefined') {
+      new Sortable(tbody, {
+        handle: 'td:first-child',
+        animation: 150,
+        onEnd: function(evt) {
+          const workId = evt.item.dataset.workId;
+          const newPosition = evt.newIndex + 1;
+
+          fetch(`/admin/works/${workId}/reorder`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+            },
+            body: JSON.stringify({ position: newPosition })
+          });
+        }
+      });
+    }
+  });
+</script>
