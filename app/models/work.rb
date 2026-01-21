@@ -25,11 +25,11 @@ class Work < ApplicationRecord
   validates :client, presence: true
   validates :number, presence: true, uniqueness: true,
             format: { with: /\A\d{3}\z/, message: "doit être 3 chiffres" }
-  validates :category, inclusion: {
-    in: %w[web mobile design automation other],
-    message: "%{value} n'est pas une catégorie valide"
-  }
-  validates :status, inclusion: { in: %w[in_progress completed] }
+  # validates :category, inclusion: {
+  #  in: %w[web mobile design automation other],
+  #  message: "%{value} n'est pas une catégorie valide"
+  # }
+  # validates :status, inclusion: { in: %w[in_progress completed] }
 
   # Callbacks
   before_validation :generate_number, on: :create
