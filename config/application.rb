@@ -20,6 +20,8 @@ Bundler.require(*Rails.groups)
 
 module Portfolio2025
   class Application < Rails::Application
+    # Après la ligne class Application < Rails::Application
+    config.active_record.maintain_test_schema = false if Rails.env.production?
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
