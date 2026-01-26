@@ -16,8 +16,11 @@
       <div class="header-container">
         <%= link_to root_path do %>
           <div class="logo-header">
-            <% mascotte_image = (content_for?(:page_theme) && yield(:page_theme) == "theme-dark") ? "https://res.cloudinary.com/dngknj8ze/image/upload/portfolio/mascotte-dark.png" : "https://res.cloudinary.com/dngknj8ze/image/upload/portfolio/mascotte.png" %>
-            <%= image_tag "mascotte_image", alt: "HEY!") %>
+            <% if (content_for?(:page_theme) && yield(:page_theme) == "theme-dark") %>
+              <img src="https://res.cloudinary.com/dngknj8ze/image/upload/portfolio/mascotte-dark.png" alt="HEY!" />
+            <% else %>
+              <img src="https://res.cloudinary.com/dngknj8ze/image/upload/portfolio/mascotte.png" alt="HEY!" />
+            <% end %>
             <h5 class="logo-text roulette-name roulette-anim" id="logo-text">MATHIEU HEYNEN</h5>
           </div>
         <% end %>
