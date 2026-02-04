@@ -92,8 +92,7 @@
                 <div class="corner-symbol bottom-left"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-right"><p class="med">+</p></div>
                 <% if work.images.attached? %>
-                  <%= image_tag url_for(work.images.first),
-                                class: "work-main-image" %>
+                  <%= image_tag work.images.first.url, class: "work-main-image" %>
                 <% end %>
               <% end %>
             </div>
