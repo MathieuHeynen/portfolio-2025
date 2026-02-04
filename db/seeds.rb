@@ -26,6 +26,12 @@ Work.create!(
   technologies: "Ruby on Rails 7, PostgreSQL, Stimulus.js, Bootstrap 5, Mapbox API, Cloudinary, Figma"
 )
 
+locally = Work.find_by(slug: "locally") || Work.last
+locally.images.attach(
+  io: URI.open("https://res.cloudinary.com/dngknj8ze/image/upload/v1770205917/PORTFOLIO/LOCALLY/LOCALLY-PRESA-01-251027_emssim.png"),
+  filename: "locally-slide-1.png"
+) if locally
+
 Work.create!(
   number: "003",
   client: "Sylvatica",
