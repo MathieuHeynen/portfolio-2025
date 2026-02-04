@@ -47,7 +47,7 @@ locally = Work.create!(
 )
 locally.images.attach(
   [
-    "https://res.cloudinary.com/dngknj8ze/image/upload/v1770200307/portfolio/locally/slide-1.png",
+    "https://res.cloudinary.com/dngknj8ze/image/upload/v1770205917/PORTFOLIO/LOCALLY/LOCALLY-PRESA-01-251027_emssim.png",
     "https://res.cloudinary.com/dngknj8ze/image/upload/v1764274766/PORTFOLIO/LOCALLY/LOCALLY-PRESA-05-251027_rjs4g4.png",
     "https://res.cloudinary.com/dngknj8ze/image/upload/v1764274766/PORTFOLIO/LOCALLY/LOCALLY-PRESA-02-251027_sfxhp3.png",
     "https://res.cloudinary.com/dngknj8ze/image/upload/v1764274766/PORTFOLIO/LOCALLY/LOCALLY-PRESA-04-251027_pq9gxg.png",
