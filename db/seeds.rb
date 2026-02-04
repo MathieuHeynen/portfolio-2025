@@ -2,7 +2,7 @@
 puts "🧹 Cleaning database..."
 Work.destroy_all
 
-Work.create!(
+sketches = Work.create!(
   number: "001",
   client: "Personal Work",
   title: "Character Design & Personal Illustrations",
@@ -34,7 +34,7 @@ sketches.images.attach(
   end
 )
 
-Work.create!(
+locally = Work.create!(
   number: "002",
   client: "Le Wagon Bootcamp",
   title: "Locally - Authentic Travel & Local Connections",
@@ -62,7 +62,7 @@ locally.images.attach(
   end
 )
 
-Work.create!(
+sylvatica = Work.create!(
   number: "003",
   client: "Sylvatica",
   title: "Brand Identity for Tree Climbing Specialist",
