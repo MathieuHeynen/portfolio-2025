@@ -1,43 +1,41 @@
 # db/seeds.rb
-puts "Nettoyage..."
+puts "🧹 Cleaning database..."
 Work.destroy_all
 
 Work.create!(
   number: "001",
-  client: "IzyChef",
-  title: "Application SaaS pour restaurants",
-  description: "Solution de gestion avec API Solucious",
-  category: "web",  # ✅ Catégorie valide
+  client: "Personal Work",
+  title: "Character Design & Personal Illustrations",
+  description: "Collection of personal artwork showcasing character design, digital illustrations, and creative explorations. Developed through years of artistic practice, these pieces demonstrate my visual storytelling abilities and unique artistic style. Created using various digital tools including Procreate, Adobe Illustrator, and Photoshop.",
+  slug: "drawings",
+  category: "illustration",
+  featured: true,
   position: 1,
-  featured: true
+  technologies: "Procreate, Adobe Illustrator, Photoshop, Digital Drawing"
 )
 
 Work.create!(
   number: "002",
-  client: "Portfolio",
-  title: "Portfolio Personnel",
-  description: "Site portfolio Rails",
-  category: "web",  # ✅ Catégorie valide
+  client: "Le Wagon Bootcamp",
+  title: "Locally - Authentic Travel & Local Connections",
+  description: "Mobile application I conceptualized and developed during Le Wagon bootcamp. Original idea pitched and selected among multiple projects to form a 3-person development team. Locally enables travelers to discover authentic places off the beaten Instagram path through recommendations from passionate locals. Led the team as Product Owner, created UI/UX mockups, and contributed to full-stack development. The app features geolocation, real-time messaging, and a curated recommendation system.",
+  slug: "locally",
+  category: "web",
+  featured: true,
   position: 2,
-  featured: true
+  technologies: "Ruby on Rails 7, PostgreSQL, Stimulus.js, Bootstrap 5, Mapbox API, Cloudinary, Figma, UI/UX Design"
 )
 
 Work.create!(
   number: "003",
-  client: "Le Wagon",
-  title: "Nakyma",
-  description: "Projet final bootcamp",
-  category: "web",  # ✅ Catégorie valide
-  position: 3
+  client: "Sylvatica",
+  title: "Brand Identity for Tree Climbing Specialist",
+  description: "Complete visual identity design for Sylvatica, a professional tree climbing and pruning service. Developed a comprehensive brand system including logo design, color palette, typography, and application guidelines. The identity reflects the company's expertise in arboriculture while conveying trust, professionalism, and connection with nature. Delivered brand guidelines, business cards, vehicle graphics, and digital assets.",
+  slug: "sylvatica",
+  category: "branding",
+  featured: true,
+  position: 3,
+  technologies: "Adobe Illustrator, Photoshop, InDesign, Brand Strategy, Logo Design"
 )
 
-Work.create!(
-  number: "004",
-  client: "Hoet & Hoet",
-  title: "Design Graphique",
-  description: "8 ans d'expérience en design",
-  category: "design",  # ✅ Catégorie valide
-  position: 4
-)
-
-puts "✅ #{Work.count} projets créés!"
+puts "✅ #{Work.count} projects created successfully!"
