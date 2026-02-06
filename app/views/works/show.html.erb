@@ -15,7 +15,9 @@
         <div class="corner-symbol top-right"><p>+</p></div>
         <div class="corner-symbol bottom-left"><p>+</p></div>
         <div class="corner-symbol bottom-right"><p>+</p></div>
-        <%= image_tag @work.images.first, id: "main-image" if @work.images.attached? %>
+        <% if @work.images.attached? %>
+          <%= image_tag @work.images.first.service_url, id: "main-image" %>
+        <% end %>
       </div>
       <div class="show-sidebar">
         <div class="show--client-buttons-wrapper">
