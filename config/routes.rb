@@ -7,19 +7,19 @@ Rails.application.routes.draw do
   get "contact", to: "pages#contact"
   post "contact", to: "pages#create_contact"
 
-  # Portfolio - CORRECTION ICI
-  get "/works", to: "pages#works"  # ✅ Liste des projets via PagesController
-  get "/works/:slug", to: "works#show", as: "work"  # ✅ Détail via WorksController
-  post "/works/:slug/track_view", to: "works#track_view", as: "track_work_view"  # Optionnel
+  # Portfolio
+  get "/works", to: "pages#works"
+  get "/works/:slug", to: "works#show", as: "work"
+  post "/works/:slug/track_view", to: "works#track_view", as: "track_work_view"
 
   # Redirections pour SEO
   get "portfolio", to: redirect("/works")
   get "projects/:slug", to: redirect("/works/%{slug}")
 
   get "health", to: "health#show"
-  get "up", to: "health#show"  # Alias pour Render
+  get "up", to: "health#show"
 
-  # Admin (avec authentification HTTP Basic)
+  # Admin
   namespace :admin do
     root "dashboard#index"
     resources :works do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :analytics, only: [:index]
   end
 
-  # API endpoints (si tu veux ajouter une API)
+  # API endpoints
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :works, only: [:index, :show]
@@ -41,11 +41,12 @@ Rails.application.routes.draw do
     end
   end
 
-  mount ActiveStorage::Engine => "/rails/active_storage"
-
   # Health check pour monitoring
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Catch-all pour 404 personnalisé
+  # ActiveStorage - DOIT ÊTRE AVANT LE CATCH-ALL
+  mount ActiveStorage::Engine => "/rails/active_storage"
+
+  # Catch-all pour 404 personnalisé - DOIT ÊTRE EN DERNIER
   match "*path", to: "pages#not_found", via: :all
 end
