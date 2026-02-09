@@ -3,7 +3,7 @@
 <div class="work-wrapper">
   <% works_js = (@works || []).map do |work|
     {
-      image: (url_for(work.images.first) if work.images.attached?),
+      image: (cloudinary_image_url(work.images.first) if work.images.attached?),
       number: work.number,
       client: work.client,
       title: work.title,
@@ -16,17 +16,14 @@
     <% first_work = @works&.first %>
 
     <% if first_work.present? %>
-      <% first_image_url =
-          if first_work.images.attached?
-            url_for(first_work.images.first)
-          else
-            nil
-          end %>
+      <% first_image_url = cloudinary_image_url(first_work.images.first) if first_work.images.attached? %>
 
       <div
         class="works-blur"
         id="works-blur"
-        style="<%= first_image_url ? "background-image: url('#{first_image_url}');" : "" %>">
+        <% if first_image_url.present? %>
+          style="background-image: url('<%= first_image_url %>');"
+        <% end %>>
         <div class="corner-symbol top-left"><p class="med">+</p></div>
         <div class="corner-symbol top-right"><p class="med">+</p></div>
         <div class="corner-symbol bottom-left"><p class="med">+</p></div>
@@ -45,7 +42,7 @@
         </div>
       </div>
     <% else %>
-      <!-- Cas où il n’y a encore aucun Work en base -->
+      <!-- Cas où il n'y a encore aucun Work en base -->
       <div class="works-blur" id="works-blur">
         <div class="works-sharp">
           <h1 class="work-carousel-title">WORKS</h1>
@@ -91,9 +88,7 @@
                 <div class="corner-symbol top-right"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-left"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-                <% if work.images.attached? %>
-                  <img src="<%= work.images.first.url %>" class="work-main-image" />
-                <% end %>
+                <%= image_tag cloudinary_image_url(work.images.first), alt: work.title if work.images.attached? %>
               <% end %>
             </div>
           </div>

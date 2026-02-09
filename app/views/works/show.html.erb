@@ -16,7 +16,7 @@
         <div class="corner-symbol bottom-left"><p>+</p></div>
         <div class="corner-symbol bottom-right"><p>+</p></div>
         <% if @work.images.attached? %>
-          <%= image_tag rails_blob_url(@work.images.first), id: "main-image" %>
+          <%= image_tag cloudinary_image_url(@work.images.first), id: "main-image" %>
         <% end %>
       </div>
       <div class="show-sidebar">
