@@ -12,7 +12,7 @@ module ApplicationHelper
 
   # Nouvelle méthode pour les images ActiveStorage
   def cloudinary_image_url(attachment)
-    return nil unless attachment&.attached?
+    return nil unless attachment.present?
 
     blob = attachment.blob
     cloud_name = ENV['CLOUDINARY_CLOUD_NAME']

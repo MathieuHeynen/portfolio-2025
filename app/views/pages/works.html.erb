@@ -3,7 +3,7 @@
 <div class="work-wrapper">
   <% works_js = (@works || []).map do |work|
     {
-      image: (cloudinary_image_url(work.images.first) if work.images.attached?),
+      image: (work.images.attached? ? cloudinary_image_url(work.images.first) : nil),
       number: work.number,
       client: work.client,
       title: work.title,
@@ -88,7 +88,7 @@
                 <div class="corner-symbol top-right"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-left"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-                <%= image_tag work.images.first, alt: work.title if work.images.attached? %>
+                <%= image_tag cloudinary_image_url(work.images.first), alt: work.title if work.images.attached? %>
               <% end %>
             </div>
           </div>
