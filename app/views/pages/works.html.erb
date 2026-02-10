@@ -88,7 +88,7 @@
                 <div class="corner-symbol top-right"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-left"><p class="med">+</p></div>
                 <div class="corner-symbol bottom-right"><p class="med">+</p></div>
-                <%= image_tag cloudinary_image_url(work.images.first), alt: work.title if work.images.attached? %>
+                <%= image_tag work.images.first, alt: work.title if work.images.attached? %>
               <% end %>
             </div>
           </div>
